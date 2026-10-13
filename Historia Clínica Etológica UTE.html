@@ -1,0 +1,1294 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Historia Clínica Etológica UTE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#f5f7f9;--surface:#ffffff;--surface-2:#e9eef4;--ink:#1f2a37;--muted:#5b6b7a;--line:#d5dde5;
+  --navy:#16324f;--teal:#1a8c8c;--teal-tint:#e2f1f1;--coral:#c9533e;--coral-tint:#fbe8e4;--amber:#b9770e;--amber-tint:#fcf0dc;
+  --bubble-me:#16324f;--bubble-me-ink:#ffffff;--focus:#1a8c8c;
+  --f-display:"Source Serif 4",Cambria,Georgia,serif;
+  --f-body:"Source Sans 3",Calibri,"Segoe UI",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1720;--surface:#16212d;--surface-2:#1d2b3a;--ink:#e6edf3;--muted:#9fb0c0;--line:#2b3b4c;
+  --navy:#9ec3e8;--teal:#4fc1c1;--teal-tint:#173434;--coral:#f08a74;--coral-tint:#3a221d;--amber:#f0b54e;--amber-tint:#3a2d14;
+  --bubble-me:#2a4a6c;--bubble-me-ink:#ffffff;--focus:#4fc1c1;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1720;--surface:#16212d;--surface-2:#1d2b3a;--ink:#e6edf3;--muted:#9fb0c0;--line:#2b3b4c;
+  --navy:#9ec3e8;--teal:#4fc1c1;--teal-tint:#173434;--coral:#f08a74;--coral-tint:#3a221d;--amber:#f0b54e;--amber-tint:#3a2d14;
+  --bubble-me:#2a4a6c;--bubble-me-ink:#ffffff;--focus:#4fc1c1;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:16px;padding-block:20px 48px}
+h1,h2,h3{font-family:var(--f-display);color:var(--navy);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(1.6rem,3.2vw,2.2rem)} h2{font-size:1.35rem} h3{font-size:1.08rem}
+p{margin:0}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.muted{color:var(--muted)}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid transparent;padding:.6rem 1rem;font-weight:600}
+button:focus-visible,textarea:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+button:disabled{opacity:.5;cursor:not-allowed}
+.btn{background:var(--navy);color:var(--surface)}
+.btn-teal{background:var(--teal);color:var(--surface)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-coral{background:var(--coral);color:var(--surface)}
+.btn-sm{font-size:.82rem;padding:.3rem .65rem}
+input,textarea,select{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.55rem .7rem;width:100%}
+textarea{resize:vertical;min-height:5.2rem}
+label{font-weight:600;font-size:.92rem;display:block;margin-bottom:.3rem}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.brand{display:flex;flex-direction:column;gap:2px}
+.steps{display:flex;gap:6px;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 20px}
+.steps li{display:flex;align-items:center;gap:6px;font-size:.88rem;padding:.35rem .7rem;border-radius:999px;background:var(--surface-2);color:var(--muted)}
+.steps li b{font-family:var(--f-mono);font-size:.8rem}
+.steps li.on{background:var(--navy);color:var(--surface)}
+.steps li.done{background:var(--teal-tint);color:var(--teal)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.grid2{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;align-items:start}
+@media(max-width:860px){.grid2{grid-template-columns:minmax(0,1fr)}}
+.grid-eq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:start}
+@media(max-width:860px){.grid-eq{grid-template-columns:minmax(0,1fr)}}
+.stack{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.notice{border-radius:10px;padding:.75rem 1rem;font-size:.95rem}
+.notice.warn{background:var(--amber-tint);color:var(--ink)}
+.notice.err{background:var(--coral-tint);color:var(--ink)}
+.notice.info{background:var(--teal-tint);color:var(--ink)}
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:22px}
+@media(max-width:860px){.hero{grid-template-columns:minmax(0,1fr)}}
+.flow{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.flow li{display:grid;grid-template-columns:2rem minmax(0,1fr);gap:10px;align-items:start}
+.flow .n{width:2rem;height:2rem;border-radius:50%;background:var(--navy);color:var(--surface);display:grid;place-items:center;font-family:var(--f-mono);font-size:.85rem}
+.species{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.species button{background:var(--surface-2);color:var(--ink);border:2px solid transparent;padding:1rem;text-align:left}
+.species button[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-tint)}
+.species small{display:block;font-weight:400;color:var(--muted)}
+.chat{display:flex;flex-direction:column;height:min(68vh,640px);min-height:420px}
+.log{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:4px 2px 12px}
+.msg{max-width:85%;padding:.6rem .85rem;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg.me{align-self:flex-end;background:var(--bubble-me);color:var(--bubble-me-ink);border-bottom-right-radius:4px}
+.msg.tu{align-self:flex-start;background:var(--surface-2);border-bottom-left-radius:4px}
+.msg.hint{align-self:center;background:var(--amber-tint);font-size:.92rem;max-width:95%}
+.who{font-size:.75rem;font-weight:700;opacity:.8;display:block;margin-bottom:2px}
+.composer{display:flex;gap:8px;border-top:1px solid var(--line);padding-top:12px}
+.composer textarea{min-height:3rem;height:3rem}
+.say{background:transparent;border:1px solid var(--line);color:var(--muted);font-size:.78rem;padding:.15rem .55rem;border-radius:99px;margin-top:6px;font-weight:600}
+.voz[aria-pressed="true"]{background:var(--teal-tint);border-color:var(--teal);color:var(--teal)}
+.dictado{font-size:.86rem;color:var(--muted);margin-top:6px}
+.typing{align-self:flex-start;color:var(--muted);font-style:italic;font-size:.92rem}
+.ficha dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;margin:0}
+.ficha dt{color:var(--muted);font-size:.9rem} .ficha dd{margin:0;font-weight:600}
+.guide{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:4px}
+.guide label{display:flex;gap:8px;align-items:flex-start;font-weight:400;margin:0;font-size:.95rem}
+.guide input{width:auto;margin-top:.25rem}
+.counter{display:flex;gap:16px;flex-wrap:wrap}
+.counter div{display:flex;flex-direction:column}
+.counter .mono{font-size:1.2rem;color:var(--navy)}
+.sec{border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--surface)}
+.sec-h{display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
+.tag{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.15rem .55rem;border-radius:999px}
+.tag.cp{background:var(--teal-tint);color:var(--teal)}.tag.cf{background:var(--coral-tint);color:var(--coral)}.tag.mx{background:var(--amber-tint);color:var(--amber)}.tag.an{background:var(--surface-2);color:var(--navy)}
+.datos{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.fb{border-radius:10px;padding:.6rem .8rem;font-size:.95rem;background:var(--amber-tint)}
+.fb.ok{background:var(--teal-tint)}
+.fb b{display:block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+.group-title{margin-top:8px;display:flex;align-items:center;gap:10px}
+details.transcript{border:1px solid var(--line);border-radius:12px;padding:12px 16px;background:var(--surface)}
+details.transcript summary{cursor:pointer;font-weight:600}
+.tx{max-height:340px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;margin-top:10px;font-size:.93rem}
+.tx p b{color:var(--navy)}
+.sticky-actions{position:sticky;bottom:0;background:var(--bg);padding-block:12px;display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:8px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--surface-2);border-radius:12px;padding:12px 14px}
+.stat .mono{font-size:1.6rem;color:var(--navy);display:block}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin-top:6px}
+.bar span{display:block;height:100%;background:var(--teal)}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.cat{font-size:.88rem;background:var(--surface-2);border-radius:8px;padding:.45rem .6rem;display:flex;justify-content:space-between;gap:8px}
+.decl{font-size:.93rem;background:var(--surface-2);border-radius:10px;padding:12px 14px;white-space:pre-wrap}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.05em}
+tbody tr:hover{background:var(--surface-2)}
+.pill{font-size:.78rem;padding:.12rem .5rem;border-radius:99px;background:var(--surface-2);white-space:nowrap}
+.pill.fin{background:var(--teal-tint);color:var(--teal)}
+.pill.inc{background:var(--amber-tint);color:var(--amber)}
+.modal{position:fixed;inset:0;background:rgba(10,20,30,.5);display:grid;place-items:center;padding:16px;z-index:10}
+.modal .panel{max-width:480px;width:100%}
+.quiz{display:flex;flex-direction:column;gap:14px}
+.qitem{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--surface);display:flex;flex-direction:column;gap:10px}
+.qitem legend{font-weight:600;padding:0;margin-bottom:4px;display:flex;gap:10px}
+.qitem legend .mono{color:var(--teal)}
+.qitem fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.opt{display:flex;gap:10px;align-items:flex-start;font-weight:400;margin:0;padding:.5rem .7rem;border-radius:8px;background:var(--surface-2);cursor:pointer}
+.opt input{width:auto;margin-top:.3rem}
+.opt.ok{background:var(--teal-tint);outline:2px solid var(--teal)}
+.opt.bad{background:var(--coral-tint);outline:2px solid var(--coral)}
+.nota{display:flex;align-items:baseline;gap:6px}
+.nota .mono{font-size:2.6rem;color:var(--navy);line-height:1}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.drop.on{border-color:var(--teal);background:var(--teal-tint)}
+.miembros{display:flex;flex-direction:column;gap:8px}
+.miembro{display:grid;grid-template-columns:2rem minmax(0,1fr) auto;gap:8px;align-items:center}
+.miembro .n{width:2rem;height:2rem;border-radius:50%;background:var(--surface-2);color:var(--navy);display:grid;place-items:center;font-family:var(--f-mono);font-size:.85rem}
+.pg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
+.integrantes{margin:0;padding-left:1.1rem}
+@media(prefers-reduced-motion:no-preference){.msg{animation:in .18s ease-out}@keyframes in{from{transform:translateY(4px);opacity:.6}to{transform:none;opacity:1}}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="eyebrow">Etología Animal · Temas 1.2 y 1.3 · Uso acotado de IA (IAA)</span>
+      <h1>Historia Clínica Etológica</h1>
+    </div>
+    <div class="row">
+      <button id="btnDocente" hidden class="btn-ghost btn-sm">Acceso docente</button>
+      <button id="btnAlumno" hidden class="btn-ghost btn-sm">← Volver a la práctica</button>
+    </div>
+  </header>
+  <ol class="steps" id="steps" aria-label="Fases de la práctica">
+    <li data-f="repaso"><b>1</b> Repaso 1.2</li>
+    <li data-f="entrevista"><b>2</b> Entrevista</li>
+    <li data-f="redaccion"><b>3</b> Redacción sin IA</li>
+    <li data-f="retro"><b>4</b> Retroalimentación</li>
+    <li data-f="revision"><b>5</b> Revisión</li>
+    <li data-f="final"><b>6</b> Entrega</li>
+  </ol>
+  <main id="app"></main>
+</div>
+<div id="modal"></div>
+
+<script>
+const CASES = [
+{
+  id:"canela",especie:"Perro",paciente:"Canela",resumen:"Hembra mestiza de 4 años",
+  tutor:{nombre:"Gabriela Andrade",rol:"tutora",personalidad:"Contadora de 34 años, cariñosa y algo ansiosa; habla rápido, se justifica y siente culpa por dejar sola a la perra. Usa expresiones como \"la pobre\", \"mi bebé\". Tiende a decir que Canela \"se venga\" cuando la deja sola."},
+  recepcion:"La tutora indica que la perra \"hace destrozos en la casa\".",
+  saludo:"Buenos días, doctora... doctor. Vengo por Canela, ya no sé qué hacer con ella, me está destrozando el departamento.",
+  hechos:[
+    ["d1","datos",1,"Hembra mestiza (parece mezcla de beagle), 4 años, 12 kg, esterilizada a los 7 meses porque la fundación lo exigía."],
+    ["d2","datos",1,"Adoptada a los 3 meses en una fundación de Santo Domingo, en 2022."],
+    ["m1","motivo",1,"Desde hace unos 2 meses, cuando se queda sola, rasca y muerde la puerta de entrada (ya rompió el marco) y aúlla; los vecinos se quejaron."],
+    ["m2","motivo",1,"Empezó cuando la tutora volvió a trabajar presencial; antes trabajaba desde casa y casi nunca la dejaba sola."],
+    ["m3","motivo",0,"La tutora cree que Canela \"lo hace por venganza\" porque \"se pone celosa\" cuando ella sale."],
+    ["o1","objetivo",1,"Quiere que Canela pueda quedarse tranquila sola unas 8 horas sin romper nada ni molestar a los vecinos."],
+    ["a1","antecedentes",1,"Es la primera consulta por esto. Le dio unas gotas \"naturales\" de valeriana que compró en una tienda de mascotas durante 3 semanas, sin resultado."],
+    ["a2","antecedentes",1,"Al llegar y encontrar destrozos la regaña y le muestra lo que rompió; la perra se agacha y \"pone cara de culpa\"."],
+    ["s1","salud",0,"Vacunas al día, desparasitada hace 2 meses, sin enfermedades conocidas ni medicación."],
+    ["v1","vida",1,"Vive en un departamento de 2 dormitorios en un tercer piso, sin patio."],
+    ["v2","vida",1,"Rutina: paseo de 10 minutos a las 6:30, queda sola de 7:30 a 17:30 y otro paseo corto en la noche."],
+    ["c1","convivencia",0,"Vive sola con la tutora; el novio la visita los fines de semana y Canela se lleva bien con él. No hay otros animales."],
+    ["am1","ambiente",1,"La adoptó durante una época en que casi no salían ni recibían visitas; de cachorra tuvo poco contacto con otras personas y lugares."],
+    ["am2","ambiente",0,"No tiene juguetes interactivos; tiene una pelota que no usa."],
+    ["al1","alimentario",1,"Cuando se queda sola no toca la comida; come todo apenas la tutora regresa."],
+    ["al2","alimentario",0,"Croquetas secas dos veces al día en plato de plástico en la cocina."],
+    ["di1","dipsico",0,"Un plato de agua de acero en la cocina; toma normal."],
+    ["so1","somato",0,"No se lame ni se rasca más de lo normal."],
+    ["e1","eliminatorio",1,"A veces orina cerca de la puerta cuando está sola; con la tutora presente nunca elimina dentro."],
+    ["su1","sueno",1,"Duerme en la cama de la tutora; la sigue de una habitación a otra, incluso al baño."],
+    ["ag1","agresion",0,"Nunca ha agredido a personas ni a perros."],
+    ["ex1","exploratorio",1,"Cuando la tutora se prepara para salir (llaves, zapatos) Canela jadea, babea y se pega a ella; el vecino la ha oído aullar a los pocos minutos de quedar sola."],
+    ["ex2","exploratorio",0,"En el paseo va con la nariz al suelo, tranquila, y saluda a otros perros."],
+    ["j1","juego",0,"Juega a perseguir una media con la tutora; no le interesan los juguetes cuando está sola."],
+    ["sx1","sexual",0,"Esterilizada; no monta."],
+    ["ot1","otros",0,"Le tiene miedo a los voladores (fuegos artificiales) en diciembre; se esconde debajo de la cama."],
+  ]
+},
+{
+  id:"thor",especie:"Perro",paciente:"Thor",resumen:"Macho mestizo de 3 años",
+  tutor:{nombre:"Fernando Zambrano",rol:"tutor",personalidad:"Comerciante de 45 años, directo, algo brusco y orgulloso de sus perros. Minimiza los problemas (\"son cosas de machos\") y se resiste a la idea de castrar. Habla con frases cortas."},
+  recepcion:"El tutor indica que sus dos perros \"se pelean\".",
+  saludo:"Buenas. Traigo a Thor porque se pelea con el otro perro de la casa, Max. Mi esposa ya está cansada.",
+  hechos:[
+    ["d1","datos",1,"Thor: macho entero, mestizo de pastor alemán, 3 años, 31 kg."],
+    ["d2","datos",0,"Comprado a los 2 meses a un vecino que tenía una camada."],
+    ["m1","motivo",1,"Desde hace unos 3 meses Thor pelea con Max, el otro macho de la casa: gruñen, se tiran encima y se muerden; Max ya tuvo una herida en la oreja."],
+    ["m2","motivo",1,"Las peleas ocurren sobre todo en el pasillo angosto que lleva al patio, en la puerta cuando llega alguien y cuando hay huesos o comida."],
+    ["m3","motivo",1,"Antes de esos 3 meses convivían sin problema."],
+    ["o1","objetivo",1,"Que los dos perros puedan seguir viviendo juntos sin pelear; no quiere regalar a ninguno."],
+    ["a1","antecedentes",1,"Otro veterinario le recomendó castrar a Thor y no lo hizo porque \"le quitaría la hombría\"."],
+    ["a2","antecedentes",1,"Cuando pelean los separa a gritos, con la manguera o con un palo."],
+    ["s1","salud",1,"Max, el otro perro, tiene 8 años y \"camina tieso\" por las mañanas y le cuesta subir las gradas; no lo han revisado."],
+    ["s2","salud",0,"Thor tuvo garrapatas y una enfermedad de la sangre tratada hace un año; ahora sano, vacunas al día."],
+    ["v1","vida",0,"Casa con patio grande en la vía a Quevedo; los perros pasan el día en el patio y entran a la casa en la noche."],
+    ["c1","convivencia",1,"Viven el tutor, su esposa y dos hijos de 7 y 10 años; los niños juegan con los perros en el patio."],
+    ["c2","convivencia",1,"Max es macho entero, mestizo, 8 años, llegó antes que Thor."],
+    ["am1","ambiente",1,"Hace unos 3 meses la perra de los vecinos estuvo en celo; los perros pasaban ladrando en la cerca."],
+    ["al1","alimentario",1,"Les da de comer a los dos al mismo tiempo, en el mismo rincón, y cada uno se acerca al plato del otro."],
+    ["al2","alimentario",0,"Croquetas y sobras de la comida casera, una vez al día en la tarde."],
+    ["di1","dipsico",0,"Un balde de agua en el patio que comparten."],
+    ["so1","somato",0,"No hay lamido excesivo."],
+    ["e1","eliminatorio",1,"Desde hace unos meses Thor levanta la pata y orina en la puerta y en las patas de los muebles al entrar a la casa."],
+    ["su1","sueno",0,"Duermen en la lavandería, cada uno en su cobija."],
+    ["ag1","agresion",1,"Antes de pelear Thor se pone rígido, levanta la cola, mira fijo a Max y gruñe; Max a veces se aparta y a veces responde."],
+    ["ag2","agresion",0,"Con las personas, incluidos los niños, Thor es tranquilo."],
+    ["ex1","exploratorio",0,"Sale poco a pasear porque \"tira mucho de la correa\"."],
+    ["j1","juego",0,"Juega con los niños con una pelota de caucho."],
+    ["sx1","sexual",1,"Thor monta a Max y a veces intenta montar el cojín del sillón."],
+    ["ot1","otros",0,"No tiene miedos marcados."],
+  ]
+},
+{
+  id:"luna",especie:"Perro",paciente:"Luna",resumen:"Hembra schnauzer miniatura de 9 años",
+  tutor:{nombre:"Martha Cedeño",rol:"tutora",personalidad:"Profesora jubilada de 63 años, muy detallista, conversadora y emotiva. Se desvía a contar anécdotas de Pepe, el perro que murió. Habla despacio y con cariño."},
+  recepcion:"La tutora refiere que la perra \"se lame las patas hasta hacerse heridas\".",
+  saludo:"Buenas tardes. Vengo con mi Lunita. Se lame las patitas de adelante todo el día, ya se hizo heridas, y yo ya no sé qué hacer.",
+  hechos:[
+    ["d1","datos",1,"Hembra schnauzer miniatura, 9 años, 8 kg, esterilizada a los 2 años."],
+    ["d2","datos",0,"Comprada a los 2 meses en un criadero de Quito."],
+    ["m1","motivo",1,"Desde hace unos 6 meses se lame las patas delanteras con mucha frecuencia y ya tiene zonas rojas y sin pelo."],
+    ["m2","motivo",1,"Lame más cuando se queda sola y en la noche."],
+    ["o1","objetivo",1,"Que deje de lastimarse y que vuelva a dormir tranquila."],
+    ["a1","antecedentes",1,"Le pusieron una crema que recomendó la farmacia y un collar isabelino una semana; nunca le hicieron exámenes de piel."],
+    ["s1","salud",1,"En los últimos meses toma mucha más agua que antes."],
+    ["s2","salud",0,"Vacunas al día; un poco de sarro dental."],
+    ["v1","vida",1,"Hace 7 meses la tutora se mudó de una casa con jardín a un departamento en el centro de Santo Domingo."],
+    ["v2","vida",0,"Sale a pasear una vez al día, 15 minutos."],
+    ["c1","convivencia",1,"Hace 6 meses murió Pepe, el otro perro de la casa (12 años), con quien Luna dormía."],
+    ["c2","convivencia",0,"Vive con la tutora y su esposo jubilado."],
+    ["am1","ambiente",0,"Tiene pocos juguetes; pasa mucho tiempo en el balcón mirando la calle."],
+    ["al1","alimentario",0,"Come bien, croquetas para perros mayores dos veces al día."],
+    ["di1","dipsico",1,"Hay que llenarle el plato de agua tres veces al día; antes con una vez bastaba."],
+    ["so1","somato",1,"Si la tutora le habla deja de lamerse un momento, pero vuelve a empezar en pocos minutos."],
+    ["e1","eliminatorio",1,"Desde hace un par de meses a veces orina dentro del departamento, cosa que nunca hacía."],
+    ["su1","sueno",1,"Se despierta en la madrugada, camina por la casa, ladra \"a nada\" y a veces se queda mirando la pared."],
+    ["su2","sueno",0,"Duerme más de día que antes."],
+    ["ag1","agresion",0,"Nunca ha agredido."],
+    ["ex1","exploratorio",1,"Algunas veces se queda parada detrás de la puerta del lado de las bisagras como si no supiera salir."],
+    ["j1","juego",0,"Ya casi no juega; antes jugaba con Pepe."],
+    ["sx1","sexual",0,"Esterilizada; nunca tuvo celos después de la cirugía."],
+    ["mt1","maternal",0,"Tuvo una camada de 4 cachorros a los 18 meses, sin problemas."],
+    ["ot1","otros",0,"Se pone nerviosa en la peluquería."],
+  ]
+},
+{
+  id:"michi",especie:"Gato",paciente:"Michi",resumen:"Hembra doméstica de pelo corto de 4 años",
+  tutor:{nombre:"Andrea Mora",rol:"tutora",personalidad:"Estudiante de posgrado de 27 años, preocupada y colaboradora; da respuestas ordenadas pero no conoce bien las necesidades de los gatos. Interpreta que Michi \"está celosa\" y \"enojada con ella\"."},
+  recepcion:"La tutora indica que su gata y un gato nuevo \"se pelean\".",
+  saludo:"Hola, buenos días. Vengo por Michi. Hace poco rescaté a otro gatito y ahora pelean todo el tiempo, Michi está irreconocible.",
+  hechos:[
+    ["d1","datos",1,"Michi: hembra doméstica de pelo corto, 4 años, 4 kg, esterilizada al año."],
+    ["d2","datos",0,"Adoptada a los 3 meses de una amiga cuya gata tuvo crías."],
+    ["m1","motivo",1,"Hace unas 2 semanas llegó Simón; desde entonces bufan, gruñen, se persiguen y han peleado."],
+    ["m2","motivo",1,"Los encuentros son sobre todo en la sala y a la hora de la comida."],
+    ["m3","motivo",1,"Michi pasa escondida debajo de la cama gran parte del día."],
+    ["o1","objetivo",1,"Que ambos gatos convivan tranquilos y que Michi vuelva a ser como antes."],
+    ["a1","antecedentes",1,"Primera consulta. Cuando pelean la tutora les rocía agua con un atomizador."],
+    ["a2","antecedentes",1,"Presentó a los gatos el mismo día que llegó Simón, soltándolo directamente en la sala."],
+    ["s1","salud",0,"Michi vacunada y desparasitada. Simón fue desparasitado y tiene su primera vacuna."],
+    ["v1","vida",1,"Departamento de 2 dormitorios; los gatos no salen al exterior (indoor)."],
+    ["v2","vida",1,"Hay un solo arenero, en la lavandería, junto a los platos de comida."],
+    ["v3","vida",1,"Hay un solo plato de comida que comparten y ningún rascador; Michi rasca el sofá."],
+    ["c1","convivencia",1,"Simón: macho entero, 5 meses, rescatado de la calle."],
+    ["c2","convivencia",0,"La tutora vive sola; trabaja medio tiempo fuera."],
+    ["am1","ambiente",1,"No hay estantes, repisas ni escondites altos; el único sitio donde Michi se esconde es bajo la cama."],
+    ["al1","alimentario",1,"Michi come menos desde que llegó Simón y espera a que él termine; Simón come rápido y luego va al plato de ella."],
+    ["di1","dipsico",0,"Un bebedero junto a la comida."],
+    ["so1","somato",0,"Michi se acicala menos que antes."],
+    ["e1","eliminatorio",1,"Desde hace una semana Michi orina en la alfombra del dormitorio, fuera del arenero."],
+    ["e2","eliminatorio",0,"Arena aglomerante sin perfume; arenero cubierto y pequeño."],
+    ["su1","sueno",0,"Antes Michi dormía en la cama de la tutora; ahora duerme debajo."],
+    ["ag1","agresion",1,"Cuando se cruzan, Michi aplana las orejas, eriza el pelo, bufa y retrocede; Simón la persigue y a veces se le lanza encima."],
+    ["ex1","exploratorio",0,"Simón explora todo y se sube a los muebles; Michi casi no sale del dormitorio."],
+    ["j1","juego",1,"Simón juega mucho y busca a Michi para \"jugar\" saltándole encima; Michi ya no juega con la caña que antes le gustaba."],
+    ["sx1","sexual",0,"Simón todavía no ha mostrado conducta sexual."],
+    ["ot1","otros",0,"Michi se esconde cuando hay visitas."],
+  ]
+},
+{
+  id:"tigre",especie:"Gato",paciente:"Tigre",resumen:"Macho doméstico de pelo corto de 6 años",
+  tutor:{nombre:"Luis Vera",rol:"tutor",personalidad:"Ingeniero agrónomo de 38 años, práctico y algo impaciente; acaba de ser papá y está cansado. Cree que el gato \"está celoso del bebé\". Respuestas concretas, a veces cortantes."},
+  recepcion:"El tutor indica que el gato \"orina en las paredes\".",
+  saludo:"Buenas tardes. Es por Tigre, el gato. Está orinando en las paredes y las cortinas de la sala, y con un bebé en la casa eso no puede seguir.",
+  hechos:[
+    ["d1","datos",1,"Macho doméstico de pelo corto, 6 años, 6 kg, castrado a los 2 años."],
+    ["d2","datos",0,"Llegó de cachorro de una finca en Valle Hermoso."],
+    ["m1","motivo",1,"Desde hace un mes orina en las paredes y cortinas de la sala, en pequeñas cantidades."],
+    ["m2","motivo",0,"El tutor dice que \"lo hace para fastidiar\" y por celos del bebé."],
+    ["o1","objetivo",1,"Que deje de orinar en la casa; si no se soluciona, piensan regalarlo."],
+    ["a1","antecedentes",1,"Primera consulta. No le han hecho examen de orina ni ninguna prueba."],
+    ["s1","salud",0,"Vacunas atrasadas un año; desparasitado hace 6 meses."],
+    ["v1","vida",1,"Casa con patio; Tigre sale durante el día y entra en la noche (mixto)."],
+    ["v2","vida",0,"Tiene un arenero en el patio de atrás que usa con normalidad."],
+    ["c1","convivencia",1,"Hace 3 meses nació el bebé de la pareja; desde entonces cerraron el dormitorio donde Tigre dormía."],
+    ["c2","convivencia",1,"Por las noches aparece en la ventana de la sala un gato macho del barrio, grande y entero; Tigre se pone tenso y le gruñe a través del vidrio."],
+    ["am1","ambiente",1,"Las marcas de orina están justo debajo y alrededor de la ventana de la sala y en las cortinas de esa ventana."],
+    ["al1","alimentario",0,"Croquetas a libre disposición en la cocina."],
+    ["di1","dipsico",0,"Toma agua normal de un plato en la cocina."],
+    ["so1","somato",0,"Acicalamiento normal."],
+    ["e1","eliminatorio",1,"Orina de pie, de espaldas a la pared, con la cola levantada y temblando."],
+    ["e2","eliminatorio",1,"En el arenero orina y defeca normalmente, en cantidad normal, y cubre las heces."],
+    ["su1","sueno",0,"Ahora duerme en el sofá de la sala."],
+    ["ag1","agresion",0,"No agrede a las personas; con el bebé se muestra indiferente y se aleja."],
+    ["ex1","exploratorio",0,"Trae lagartijas y pájaros del patio."],
+    ["j1","juego",0,"Ya casi nadie juega con él desde que nació el bebé."],
+    ["sx1","sexual",0,"Castrado; no monta."],
+    ["ot1","otros",0,"Se pone muy nervioso en el veterinario."],
+  ]
+},
+{
+  id:"nala",especie:"Gato",paciente:"Nala",resumen:"Hembra doméstica de pelo semilargo de 10 meses",
+  tutor:{nombre:"Daniel Reyes",rol:"tutor",personalidad:"Diseñador gráfico de 29 años, relajado y bromista; vive con su pareja. Le divierten algunas conductas de la gata pero los ataques ya le duelen. Dice que Nala \"es una fiera\" y \"lo odia\"."},
+  recepcion:"El tutor indica que la gata \"ataca los pies\".",
+  saludo:"Hola, qué tal. Vengo por Nala. Es una ternura, pero nos ataca los pies y los tobillos todo el tiempo, ya tengo las piernas llenas de rasguños.",
+  hechos:[
+    ["d1","datos",1,"Hembra doméstica de pelo semilargo, 10 meses, 3,2 kg, entera."],
+    ["d2","datos",1,"La encontraron sola en la calle a las 4 semanas de edad, sin madre ni hermanos, y la criaron con biberón."],
+    ["m1","motivo",1,"Desde hace unos 4 meses salta desde detrás de los muebles y ataca pies y tobillos, sobre todo cuando caminan por el pasillo."],
+    ["m2","motivo",1,"Los ataques son más frecuentes al amanecer y cuando los tutores llegan del trabajo."],
+    ["o1","objetivo",1,"Que deje de atacarlos y que puedan caminar por la casa tranquilos."],
+    ["a1","antecedentes",1,"Primera consulta. Cuando ataca le dan un golpe suave en la nariz o la empujan con el pie, y ella vuelve a atacar con más fuerza."],
+    ["a2","antecedentes",1,"Cuando era pequeña jugaban con ella usando las manos y los dedos."],
+    ["s1","salud",0,"Primera vacuna puesta, segunda pendiente; desparasitada."],
+    ["v1","vida",1,"Departamento pequeño; Nala queda sola unas 10 horas al día, de lunes a viernes."],
+    ["v2","vida",0,"No sale al exterior."],
+    ["c1","convivencia",0,"Vive con el tutor y su pareja; no hay otros animales."],
+    ["am1","ambiente",1,"No tiene rascador, ni juguetes interactivos, ni estantes; tiene una pelotita con cascabel."],
+    ["al1","alimentario",0,"Croquetas dos veces al día en plato de cerámica."],
+    ["di1","dipsico",0,"Le gusta tomar agua del grifo del baño."],
+    ["so1","somato",0,"Acicalamiento normal."],
+    ["e1","eliminatorio",0,"Usa bien el arenero."],
+    ["su1","sueno",0,"Duerme casi todo el día mientras están fuera."],
+    ["ag1","agresion",1,"Antes de atacar se agazapa, mueve la cola, menea la cadera y fija la mirada en los pies; no bufa ni gruñe."],
+    ["ag2","agresion",1,"Muerde y sujeta con las patas delanteras mientras patea con las traseras; a veces hace herida."],
+    ["ex1","exploratorio",0,"Se sube a todas partes y persigue insectos."],
+    ["j1","juego",1,"Nadie juega con ella de forma regular; juega sola un rato con la pelotita y luego la ignora."],
+    ["sx1","sexual",1,"Cada pocas semanas maúlla fuerte durante varios días, se revuelca en el piso y levanta la cadera cuando la acarician."],
+    ["sx2","sexual",0,"No la han esterilizado porque pensaban dejarle tener una camada."],
+    ["ot1","otros",0,"Se asusta con la licuadora."],
+  ]
+},
+];
+</script>
+<script>
+"use strict";
+const MAX_PREGUNTAS=45,MAX_PISTAS=2;
+const TEACHER_PIN="UTE2025";
+const LS_INTENTO="hce-intento",LS_GRADE="hce-grade:",LS_VOZ="hce-voz";
+// Repaso del tema 1.2 (visión científica del comportamiento). Vale 2 de los 10 puntos.
+const QUIZ=[
+ {q:"El tutor dice: \"mi perro orina en mi cama por venganza\". ¿Cómo lo registras en la historia clínica?",o:["Orina por venganza cuando el tutor sale","Orina sobre la cama del tutor; el tutor lo interpreta como venganza","Presenta celos hacia el tutor","Conducta de dominancia sobre el tutor"],a:1,e:"El enfoque clínico es objetivo: se describe lo observable y, si se registra la interpretación del tutor, se le atribuye a él. Evita el antropomorfismo."},
+ {q:"En la clasificación por objeto consumatorio, un comportamiento centrípeto es aquel cuyo objeto es…",o:["Otro individuo de la misma especie","El propio animal","El ambiente físico","Una hembra en celo"],a:1,e:"Centrípetos: el objeto consumatorio es el propio animal (alimentario, dípsico, somatoestésico, eliminatorio y sueño)."},
+ {q:"¿En qué categoría ubicas el acicalamiento excesivo con lesiones?",o:["Centrípeto: somatoestésico","Centrífugo: exploratorio","Mixto: sexual","Centrífugo: juego"],a:0,e:"El acicalamiento es somatoestésico (centrípeto). Si no se interrumpe o produce lesiones, considera una conducta compulsiva y descarta causas dermatológicas y dolor."},
+ {q:"¿Qué tienen en común la agresión, la exploración y el juego?",o:["Dependen de un estado hormonal previo","Su objeto consumatorio está fuera del animal","Se dirigen al propio cuerpo","Solo aparecen en machos enteros"],a:1,e:"Son centrífugos: el objeto consumatorio está fuera del animal; modifican el medio o recogen información sobre él."},
+ {q:"Los comportamientos mixtos (sexual y maternal) se caracterizan por…",o:["Ser centrípetos con componente social","Ser centrífugos que requieren un estado fisiológico previo, sobre todo hormonal","Aparecer solo en hembras","No modificarse con la castración"],a:1,e:"Mixtos: centrífugos que solo se expresan con una condición fisiológica previa. Por eso el estado reproductivo del Paso 1 es clave."},
+ {q:"De las cuatro preguntas de Tinbergen, \"¿qué estímulo y qué motivación desencadenan la conducta?\" corresponde a…",o:["Función","Evolución","Causa","Desarrollo"],a:2,e:"Causa: qué la desencadena. Desarrollo: cómo se desarrolló en la historia del animal. Función: para qué le sirve. Evolución: por qué la especie la tiene."},
+ {q:"Un perro ladra a cada persona que pasa frente a la casa. Según la clasificación clínica, es…",o:["Una conducta normal sin importancia","Un problema de comportamiento","Un trastorno de comportamiento","Un signo neurológico"],a:1,e:"La forma de la conducta es normal, pero resulta inaceptable para la convivencia: es un problema de comportamiento. Un trastorno es anormal en forma, frecuencia o contexto."},
+ {q:"Un perro \"caza moscas\" que no existen. ¿Cuál es el primer paso?",o:["Registrarlo como juego","Diagnosticar un trastorno compulsivo","Descartar causa médica (crisis focales, enfermedad digestiva)","Indicar más paseos"],a:2,e:"Es un signo de alerta del Paso 8: se ha asociado a crisis epilépticas focales y a enfermedad gastrointestinal. Siempre se descarta antes la causa médica."}
+];
+const NOTA_REPASO=2,NOTA_HISTORIA=8;
+function notaDe(rec){
+  const rq=(rec.repaso||0)/QUIZ.length*NOTA_REPASO;
+  const rub=RUBRICA.reduce((t,[k])=>t+(rec[k]||0),0);
+  const rh=rub/(RUBRICA.length*4)*NOTA_HISTORIA;
+  return Math.round((rq+rh)*10)/10;
+}
+const CAT_LABEL={datos:"Datos del paciente",motivo:"Motivo de consulta",objetivo:"Objetivo de la consulta",antecedentes:"Consultas y tratamientos previos",salud:"Historia clínica general",vida:"Condiciones de vida",convivencia:"Convivencia",ambiente:"Ambiente",alimentario:"Alimentario",dipsico:"Dípsico",somato:"Somatoestésico",eliminatorio:"Eliminatorio",sueno:"Sueño",agresion:"Agresión",exploratorio:"Exploratorio",juego:"Juego",sexual:"Sexual",maternal:"Maternal",otros:"Otros datos"};
+const PISTA={datos:"¿Tienes la reseña completa? Piensa en cómo y a qué edad llegó el paciente al hogar y en su estado reproductivo.",motivo:"¿Podrías describir el problema con precisión: qué hace, desde cuándo, dónde, ante quién y con qué frecuencia?",objetivo:"¿Sabes qué espera lograr el tutor con esta consulta?",antecedentes:"¿Qué se ha intentado antes y cómo reacciona el tutor cuando ocurre la conducta?",salud:"¿Hay algo en la salud del paciente, o de otros animales de la casa, que pueda estar influyendo?",vida:"¿Cómo es un día normal del paciente y cómo está organizado el espacio donde vive?",convivencia:"¿Con quién convive el paciente y ha cambiado el grupo familiar?",ambiente:"¿Qué pasó en el entorno cerca del momento en que empezó el problema? ¿Cómo fue su etapa temprana?",alimentario:"¿Exploraste cuándo, cómo y en presencia de quién come?",dipsico:"¿Sabes cuánta agua toma y si eso ha cambiado?",somato:"¿Qué ocurre cuando el tutor interrumpe la conducta?",eliminatorio:"¿Sabes dónde, cómo y en qué posición elimina, y desde cuándo?",sueno:"¿Cómo son las noches del paciente?",agresion:"¿Puedes describir la comunicación corporal antes y durante la conducta agresiva?",exploratorio:"¿Qué hace el paciente ante las salidas del tutor o en lugares y situaciones nuevas?",juego:"¿Con qué, con quién y cómo juega el paciente?",sexual:"¿Consideraste el comportamiento sexual según su estado reproductivo?",maternal:"¿Exploraste su historia reproductiva y maternal?",otros:"¿Preguntaste por miedos y otras conductas llamativas?"};
+const SECCIONES=[
+  {id:"motivo",t:"Motivo de la consulta",g:"an",h:"En palabras del tutor: qué ocurre, desde cuándo, dónde, con quién y con qué frecuencia."},
+  {id:"objetivo",t:"Objetivo de la consulta",g:"an",h:"Expectativas del tutor."},
+  {id:"antecedentes",t:"Consultas y tratamientos previos",g:"an",h:"Métodos usados, fármacos, duración y resultados."},
+  {id:"salud",t:"Historia clínica general",g:"an",h:"Vacunas, desparasitación, enfermedades, tratamientos y exámenes; también de otros animales si influye."},
+  {id:"vida",t:"Condiciones de vida",g:"an",h:"Rutinas, vivienda, acceso al exterior; en gatos, distribución del territorio."},
+  {id:"convivencia",t:"Convivencia",g:"an",h:"Personas y otros animales: edades, relación, cambios."},
+  {id:"ambiente",t:"Ambiente",g:"an",h:"Ambiente temprano, cambios recientes, tipo de ambiente y enriquecimiento."},
+  {id:"alimentario",t:"Alimentario",g:"cp"},{id:"dipsico",t:"Dípsico",g:"cp"},{id:"somato",t:"Somatoestésico",g:"cp"},{id:"eliminatorio",t:"Eliminatorio",g:"cp"},{id:"sueno",t:"Sueño",g:"cp"},
+  {id:"agresion",t:"Agresión",g:"cf",h:"Incluye comunicación corporal, detonantes y contexto."},{id:"exploratorio",t:"Exploratorio",g:"cf"},{id:"juego",t:"Juego",g:"cf"},
+  {id:"sexual",t:"Sexual",g:"mx"},{id:"maternal",t:"Maternal",g:"mx",h:"Solo hembras; escribe \"No aplica\" si corresponde."},
+  {id:"otros",t:"Otros datos importantes",g:"an",h:"Miedos, conducta en el veterinario o la peluquería, signos de alerta."}
+];
+const DATOS=[["nombre","Nombre"],["especie","Especie"],["edad","Edad"],["edadAdq","Edad de adquisición"],["sexo","Sexo"],["peso","Peso (kg)"],["raza","Raza"],["estadoRep","Estado reproductivo"],["origen","Origen"],["enfermedades","Enfermedades actuales"],["medicamentos","Medicamentos y suplementos"]];
+const GRUPOS={an:["Anamnesis y contexto","an"],cp:["Comportamientos centrípetos","cp"],cf:["Comportamientos centrífugos","cf"],mx:["Comportamientos mixtos","mx"]};
+const RUBRICA=[["completitud","Completitud"],["motivo","Motivo de consulta"],["clasificacion","Clasificación de conductas"],["objetividad","Objetividad"],["ambiente","Ambiente y territorio"]];
+
+let S=null;
+let caps={db:null,sample:null,user:null,downloads:null};
+let uid=null,canEdit=false,busy=false,view="alumno",saveChain=Promise.resolve();
+const $=(s,r=document)=>r.querySelector(s);
+const app=$("#app");
+const esc=(t)=>String(t??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const caseOf=(id)=>CASES.find(c=>c.id===id);
+const keyFacts=(c)=>c.hechos.filter(h=>h[2]===1);
+function lsGet(){try{return JSON.parse(localStorage.getItem(LS_INTENTO)||"null");}catch(e){return null;}}
+function lsSet(){try{localStorage.setItem(LS_INTENTO,JSON.stringify(S));}catch(e){}}
+function lsClear(){try{localStorage.removeItem(LS_INTENTO);}catch(e){}}
+
+// -------- Helpers de bloqueo por especie --------
+function sanitizeName(n){return n.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"_").replace(/^_+|_+$/g,"");}
+function gradeKey(especie,nombre){return especie.toLowerCase()+"_"+sanitizeName(nombre);}
+// Un registro por grupo: especie + paralelo + grupo.
+function groupKey(especie,paralelo,grupo){return especie.toLowerCase()+"_p"+sanitizeName(paralelo||"x")+"_g"+sanitizeName(grupo||"x");}
+function miembrosDe(r){return Array.isArray(r?.integrantes)&&r.integrantes.length?r.integrantes:(r?.nombre?String(r.nombre).split(/\s*,\s*/).filter(Boolean):[]);}
+function nombresTexto(r){return miembrosDe(r).join(", ");}
+function grupoTexto(r){return[r.paralelo?"Paralelo "+r.paralelo:"",r.grupo?"Grupo "+r.grupo:""].filter(Boolean).join(" · ");}
+function archivoBase(st){return("hce_P"+(st.paralelo||"")+"_G"+(st.grupo||"")+"_"+(miembrosDe(st)[0]||"grupo")).normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^A-Za-z0-9]+/g,"_");}
+// Busca si algún integrante ya tiene una entrega de esa especie en otro registro.
+function choqueMiembros(lista,especie,miembros,aid){
+  const set=new Set(miembros.map(sanitizeName));
+  for(const g of lista){if(g.especie!==especie||g.aid===aid)continue;const hit=miembrosDe(g).find(m=>set.has(sanitizeName(m)));if(hit)return{g,hit};}
+  return null;
+}
+function gradesLocales(){
+  const out=[];
+  try{for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k&&k.startsWith(LS_GRADE)){try{const v=JSON.parse(localStorage.getItem(k));if(v)out.push({key:k.slice(LS_GRADE.length),...v});}catch(e){}}}}catch(e){}
+  return out;
+}
+function lsGradeKey(k){return LS_GRADE+k;}
+function lsGetGrade(k){try{const v=localStorage.getItem(lsGradeKey(k));return v?JSON.parse(v):null;}catch(e){return null;}}
+function lsSetGrade(k,data){try{localStorage.setItem(lsGradeKey(k),JSON.stringify(data));}catch(e){}}
+function lsDelGrade(k){try{localStorage.removeItem(lsGradeKey(k));}catch(e){}}
+
+// TTS
+const TTS="speechSynthesis" in window&&typeof SpeechSynthesisUtterance!=="undefined";
+let vozOn=(()=>{try{return localStorage.getItem(LS_VOZ)==="1";}catch(e){return false;}})();
+let voces=[];
+function cargarVoces(){try{voces=speechSynthesis.getVoices().filter(v=>/^es/i.test(v.lang));}catch(e){voces=[];}}
+if(TTS){cargarVoces();try{speechSynthesis.onvoiceschanged=cargarVoces;}catch(e){}}
+function elegirVoz(rol){
+  if(!voces.length)cargarVoces();
+  const pref=["es-EC","es-US","es-419","es-MX","es-CO","es-PE","es-ES"];
+  const fem=/female|mujer|paulina|monica|mónica|helena|laura|sabina|dalia|elvira|lupe|paloma|marisol|google español de estados unidos/i;
+  const masc=/\bmale\b|hombre|jorge|diego|pablo|juan|carlos|raul|raúl|alvaro|álvaro|enrique|andrés/i;
+  const byLang=pref.map(l=>voces.filter(v=>v.lang.replace("_","-").toLowerCase().startsWith(l.toLowerCase()))).flat().concat(voces);
+  const want=rol==="tutora"?fem:masc;
+  return byLang.find(v=>want.test(v.name))||byLang[0]||null;
+}
+function hablar(texto,rol){
+  if(!TTS||!texto)return;
+  try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(texto);const v=elegirVoz(rol);u.lang=v?v.lang:"es-EC";if(v){try{u.voice=v;}catch(e){}}u.rate=1;u.pitch=rol==="tutora"?1.08:0.92;speechSynthesis.speak(u);}catch(e){}
+}
+function callar(){if(TTS)try{speechSynthesis.cancel();}catch(e){}}
+
+function metrics(st=S){
+  const c=caseOf(st.caseId),keys=keyFacts(c),rev=new Set(st.revelados||[]);
+  const got=keys.filter(h=>rev.has(h[0])).length;
+  const preguntas=st.chat.length,abiertas=st.chat.filter(m=>m.tipo==="abierta").length,inductivas=st.chat.filter(m=>m.tipo==="inductiva").length;
+  const porCat={};keys.forEach(h=>{porCat[h[1]]=porCat[h[1]]||[0,0];porCat[h[1]][1]++;if(rev.has(h[0]))porCat[h[1]][0]++;});
+  return{cobertura:keys.length?Math.round(100*got/keys.length):0,got,total:keys.length,preguntas,abiertas,inductivas,pistas:(st.pistas||[]).length,porCat};
+}
+
+function save(){
+  if(!S)return;
+  S.updatedAt=Date.now();lsSet();
+}
+
+function recordFrom(st){
+  const c=caseOf(st.caseId);
+  const m=metrics(st);
+  const rub=(st.fb2&&st.fb2.rubrica)||{};
+  const key=groupKey(c.especie,st.paralelo,st.grupo);
+  const record={
+    nombre:nombresTexto(st),integrantes:miembrosDe(st),paralelo:st.paralelo||"",grupo:st.grupo||"",
+    especie:c.especie,paciente:c.paciente,caseId:st.caseId,
+    cobertura:m.cobertura,preguntas:m.preguntas,abiertas:m.abiertas,inductivas:m.inductivas,pistas:m.pistas,
+    completitud:rub.completitud||0,motivo:rub.motivo||0,clasificacion:rub.clasificacion||0,objetividad:rub.objetividad||0,ambiente:rub.ambiente||0,
+    repaso:(st.repaso&&st.repaso.aciertos)||0,
+    startedAt:st.startedAt,entregadoAt:st.entregado||Date.now(),
+    aid:st.aid,evaluada:!!(st.fb2&&st.fb2.rubrica)
+  };
+  record.nota=notaDe(record);
+  return{key,record};
+}
+async function saveGradeRecord(){
+  const{key,record}=recordFrom(S);
+  lsSetGrade(key,record);
+  S._enLinea=false;
+  if(caps.db&&caps.canWrite){
+    try{await caps.db.doc("grades/"+key).set({...record,fuente:"automatica"});S._enLinea=true;}catch(e){console.warn("saveGrade error",e);}
+  }
+}
+
+function setSteps(){
+  const order=["repaso","entrevista","redaccion","retro","revision","final"];
+  const f=S?(S.fase==="retro2"?"final":S.fase):null;
+  const i=order.indexOf(f);
+  document.querySelectorAll("#steps li").forEach((li,k)=>{li.className=(view==="alumno"&&i>=0)?(k<i?"done":(k===i?"on":"")):"";});
+  $("#steps").hidden=view!=="alumno";
+}
+
+function render(){
+  app.oninput=null;
+  if(!S||S.fase!=="entrevista"||view!=="alumno")callar();
+  setSteps();
+  $("#btnDocente").hidden=(view!=="alumno");
+  $("#btnAlumno").hidden=(view!=="docente");
+  if(view==="docente")return renderDocente();
+  // Pantalla de login: caps ya inicializados, estamos en claude.ai pero sin sesión
+  if(caps._ready&&!caps.sample&&caps._hasClaude&&!S)return renderLogin();
+  if(!S)return renderInicio();
+  if(S.fase==="repaso"&&S.repaso)return renderRepasoResultado();
+  ({repaso:renderRepaso,entrevista:renderEntrevista,redaccion:renderRedaccion,retro:renderRetro,revision:renderRedaccion,final:renderFinal})[S.fase]();
+}
+
+// -------- Login gate --------
+function renderLogin(){
+  const st=caps._diag?.sample;
+  const denied=st==="denied";
+  const sinAcceso=!denied&&caps._hasClaude;
+  const titulo=denied?"Activa el permiso para usar Claude":"No puedes usar el tutor con este acceso";
+  const texto=denied
+    ?"Rechazaste el permiso para que esta página use Claude con tu cuenta. Sin él, el tutor simulado no puede responder."
+    :"Tu cuenta abrió la práctica en modo <b>Puede ver</b>, que no permite usar la IA. El tutor simulado necesita que la práctica esté compartida contigo con permiso para usarla.";
+  app.innerHTML=`
+  <div style="max-width:560px;margin:48px auto 0;display:flex;flex-direction:column;gap:22px;align-items:center;text-align:center;padding-inline:16px">
+    <div style="width:72px;height:72px;border-radius:50%;background:var(--teal-tint);display:grid;place-items:center">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <div class="stack" style="gap:8px">
+      <h2>${titulo}</h2>
+      <p class="muted">${texto}</p>
+    </div>
+    ${denied?`<div class="stack" style="width:100%;gap:10px">
+      <button class="btn-teal" id="btnPerm" style="width:100%;padding:.85rem 1rem;font-size:1rem">Revisar permisos</button>
+      <p class="muted" style="font-size:.85rem" id="permHelp">Si no se abre el panel, usa el menú de la parte superior del artefacto y activa el permiso de Claude; luego recarga la página.</p>
+    </div>`:`<div class="notice info" style="text-align:left;width:100%">
+      <b>Qué hacer</b>
+      <ol style="margin:.4rem 0 0;padding-left:1.2rem;display:flex;flex-direction:column;gap:4px">
+        <li>Comprueba que iniciaste sesión en claude.ai con tu cuenta.</li>
+        <li>Si arriba aparece <b>Puede ver</b>, avisa a tu docente: debe compartir la práctica contigo con permiso para usarla.</li>
+        <li>Cuando te den acceso, recarga esta página.</li>
+      </ol></div>
+      <button class="btn-ghost" id="btnRetry">Ya me dieron acceso: volver a intentar</button>`}
+  </div>`;
+  if($("#btnPerm"))$("#btnPerm").onclick=async()=>{
+    try{await caps._perm.manage();}catch(e){$("#permHelp").textContent="No se pudo abrir el panel. Usa el menú de la parte superior del artefacto para activar el permiso de Claude y recarga la página.";return;}
+    await recargarCaps();
+  };
+  if($("#btnRetry"))$("#btnRetry").onclick=async()=>{
+    const b=$("#btnRetry");b.disabled=true;b.textContent="Comprobando…";
+    await recargarCaps();
+    if(!caps.sample){b.disabled=false;b.textContent="Ya me dieron acceso: volver a intentar";toast("Todavía no hay acceso para usar la IA. Recarga la página después de que tu docente cambie el permiso.");}
+  };
+}
+async function recargarCaps(){
+  try{
+    const[db,sample,user,downloads]=await Promise.all(["db","sample","user","downloads"].map(n=>window.claude.use(n).catch(()=>null)));
+    caps={...caps,db,sample,user,downloads};
+    if(caps._perm){try{caps._diag={sample:await caps._perm.state("sample")};}catch(e){}}
+    await resolverAcceso(user);
+  }catch(e){}
+  if(caps.sample)render();
+}
+
+// -------- Acceso docente --------
+function promptDocente(){
+  const m=$("#modal");
+  m.innerHTML=`<div class="modal" role="dialog" aria-modal="true"><div class="panel stack"><h3>Acceso docente</h3><div><label for="pinIn">PIN</label><input id="pinIn" type="password" autocomplete="off" placeholder="Ingresa el PIN"></div><div class="row" style="justify-content:flex-end"><button class="btn-ghost" id="pinCan">Cancelar</button><button class="btn" id="pinOk">Ingresar</button></div></div></div>`;
+  const pinIn=$("#pinIn");
+  setTimeout(()=>pinIn.focus(),50);
+  pinIn.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();checkPin();}});
+  $("#pinCan").onclick=()=>m.innerHTML="";
+  $("#pinOk").onclick=()=>checkPin();
+  function checkPin(){
+    if(pinIn.value===TEACHER_PIN){m.innerHTML="";view="docente";render();}
+    else{pinIn.value="";pinIn.placeholder="PIN incorrecto — inténtalo de nuevo";pinIn.focus();}
+  }
+}
+
+// -------- Inicio --------
+let especieSel=null;
+const MAX_MIEMBROS=6;
+let regDraft={paralelo:"",grupo:"",integrantes:[""]};
+function syncReg(){
+  const p=$("#inParalelo"),g=$("#inGrupo");if(p)regDraft.paralelo=p.value;if(g)regDraft.grupo=g.value;
+  const ins=[...document.querySelectorAll("[data-m]")];if(ins.length)regDraft.integrantes=ins.map(i=>i.value);
+}
+function drawMiembros(){
+  const box=$("#miembros");if(!box)return;
+  const L=regDraft.integrantes;
+  box.innerHTML=L.map((v,i)=>`<div class="miembro"><span class="n">${i+1}</span><input id="m_${i}" data-m="${i}" autocomplete="off" aria-label="Integrante ${i+1}" placeholder="Nombre y apellido" value="${esc(v)}">${L.length>1?`<button class="btn-ghost btn-sm" type="button" data-rm="${i}" aria-label="Quitar integrante ${i+1}">Quitar</button>`:`<span></span>`}</div>`).join("");
+  box.querySelectorAll("[data-rm]").forEach(b=>b.onclick=()=>{syncReg();regDraft.integrantes.splice(+b.dataset.rm,1);drawMiembros();});
+  box.querySelectorAll("[data-m]").forEach(inp=>inp.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("#btnAddM").click();}}));
+}
+function renderInicio(){
+  const prev=lsGet();
+  app.innerHTML=`
+  <div class="hero">
+    <section class="panel stack">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>Entrevista a un tutor, redacta tu historia y recibe preguntas, no respuestas</h2>
+      <ol class="flow">
+        <li><span class="n">1</span><div><b>Repaso del tema 1.2.</b> ${QUIZ.length} preguntas sobre la visión científica del comportamiento: centrípetos, centrífugos y mixtos. Un solo intento.</div></li>
+        <li><span class="n">2</span><div><b>Entrevista.</b> Un tutor simulado por IA responde solo lo que preguntes, como en una consulta real. Tienes hasta ${MAX_PREGUNTAS} preguntas y ${MAX_PISTAS} pistas (cada pista queda registrada).</div></li>
+        <li><span class="n">3</span><div><b>Redacción sin IA.</b> El chat se cierra y redactas la historia clínica etológica con tus propias palabras, en los 8 pasos vistos en clase.</div></li>
+        <li><span class="n">4</span><div><b>Retroalimentación socrática.</b> La IA compara tu historia con el caso y te devuelve preguntas sobre lo que falta o conviene reconsiderar.</div></li>
+        <li><span class="n">5</span><div><b>Una revisión.</b> Corriges una sola vez. Se guardan ambas versiones.</div></li>
+        <li><span class="n">6</span><div><b>Entrega y nota.</b> Recibes tu nota sobre 10 (repaso ${NOTA_REPASO} + historia clínica ${NOTA_HISTORIA}) y descargas tu registro para subirlo a la plataforma.</div></li>
+      </ol>
+      <p class="muted">Un solo intento por especie para cada grupo, registrado con el nombre de cada integrante. La IA no redacta tu historia ni clasifica las conductas por ti. Usa "tutor/a" para referirte a la persona responsable del animal.</p>
+    </section>
+    <section class="panel stack" aria-labelledby="hIni">
+      <h2 id="hIni">Empezar la práctica</h2>
+      <div id="capNotice"></div>
+      ${prev&&prev.fase&&prev.fase!=="final"?`<div class="notice info">Tienes una práctica sin terminar con <b>${esc(caseOf(prev.caseId)?.paciente)}</b>. <button class="btn-teal" id="btnResume" style="margin-top:8px">Continuar donde quedé</button></div>`:""}
+      <div class="pg">
+        <div><label for="inParalelo">Paralelo</label><input id="inParalelo" placeholder="Ej.: A" value="${esc(regDraft.paralelo)}"></div>
+        <div><label for="inGrupo">Grupo</label><input id="inGrupo" placeholder="Ej.: 3" value="${esc(regDraft.grupo)}"></div>
+      </div>
+      <div class="stack" style="gap:8px">
+        <span style="font-weight:600;font-size:.92rem">Integrantes del grupo <span class="muted" style="font-weight:400">(nombre y apellido, como en la lista del curso)</span></span>
+        <div class="miembros" id="miembros"></div>
+        <div><button class="btn-ghost btn-sm" id="btnAddM" type="button">+ Añadir integrante</button></div>
+      </div>
+      <div><span style="font-weight:600;font-size:.92rem">Selecciona la especie de tu paciente</span>
+        <div class="species" style="margin-top:6px">
+          <button id="spPerro" aria-pressed="${especieSel==="Perro"}">Paciente canino<small>Se asigna un caso al azar</small></button>
+          <button id="spGato" aria-pressed="${especieSel==="Gato"}">Paciente felino<small>Se asigna un caso al azar</small></button>
+        </div></div>
+      <button class="btn" id="btnStart">Abrir consulta</button>
+    </section>
+  </div>`;
+  capNotice();
+  drawMiembros();
+  $("#btnAddM").onclick=()=>{syncReg();if(regDraft.integrantes.length>=MAX_MIEMBROS)return toast(`Máximo ${MAX_MIEMBROS} integrantes por grupo.`);regDraft.integrantes.push("");drawMiembros();const ins=document.querySelectorAll("[data-m]");ins[ins.length-1]?.focus();};
+  $("#spPerro").onclick=()=>{especieSel="Perro";$("#spPerro").setAttribute("aria-pressed","true");$("#spGato").setAttribute("aria-pressed","false");};
+  $("#spGato").onclick=()=>{especieSel="Gato";$("#spGato").setAttribute("aria-pressed","true");$("#spPerro").setAttribute("aria-pressed","false");};
+  if($("#btnResume"))$("#btnResume").onclick=()=>{S=prev;render();};
+  ["inParalelo","inGrupo"].forEach(id=>$("#"+id).addEventListener("input",syncReg));
+  $("#btnStart").onclick=async()=>{
+    syncReg();
+    const paralelo=regDraft.paralelo.trim(),grupo=regDraft.grupo.trim();
+    const integrantes=regDraft.integrantes.map(x=>x.trim().replace(/\s+/g," ")).filter(Boolean);
+    if(!paralelo){$("#inParalelo").focus();return toast("Escribe el paralelo.");}
+    if(!grupo){$("#inGrupo").focus();return toast("Escribe el número o nombre del grupo.");}
+    if(!integrantes.length){document.querySelector("[data-m]")?.focus();return toast("Escribe el nombre de al menos un integrante.");}
+    const rep=integrantes.map(sanitizeName);if(new Set(rep).size!==rep.length)return toast("Hay un integrante repetido. Revisa los nombres.");
+    const nombre=integrantes.join(", ");
+    if(!especieSel)return toast("Elige si tu paciente será canino o felino.");
+    // Verificar bloqueo por especie
+    const key=groupKey(especieSel,paralelo,grupo);
+    let existingGrade=lsGetGrade(key);
+    if(!existingGrade){const ch=choqueMiembros(gradesLocales(),especieSel,integrantes,null);if(ch)existingGrade=ch.g;}
+    if(!existingGrade&&caps.db&&caps.canRead){
+      try{const d=await caps.db.doc("grades/"+key).get();if(d.exists)existingGrade=d.data();}catch(e){}
+    }
+    if(existingGrade){return showBlockedOverlay(existingGrade,especieSel);}
+    const pool=CASES.filter(c=>c.especie===especieSel);
+    const c=pool[Math.floor(Math.random()*pool.length)];
+    S={aid:"a"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),caseId:c.id,nombre,integrantes,paralelo,grupo,startedAt:Date.now(),fase:"repaso",repaso:null,chat:[],pistas:[],revelados:[],v1:null,fb1:null,v2:null,fb2:null};
+    save();render();
+  };
+}
+
+function showBlockedOverlay(grade,especie){
+  const f=(t)=>t?new Date(t).toLocaleDateString("es-EC"):"—";
+  const rubHTML=RUBRICA.map(([k,l])=>`<div class="cat"><span>${l}</span><span class="mono">${grade[k]||"—"}/4</span></div>`).join("");
+  const m=$("#modal");
+  m.innerHTML=`<div class="modal" role="dialog" aria-modal="true"><div class="panel stack">
+    <span class="eyebrow">Práctica ya completada</span>
+    <h3>Este grupo ya tiene una entrega de ${especie==="Perro"?"paciente canino":"paciente felino"}</h3>
+    <p class="muted">Solo se permite un intento por especie. Resultados registrados de ${esc(grupoTexto(grade)||"este grupo")}: ${esc(nombresTexto(grade))}.</p>
+    <div class="nota"><span class="mono">${grade.nota!=null?grade.nota:notaDe(grade)}</span><span class="muted">/ 10</span></div>
+    <div class="cats" style="margin-top:4px">
+      <div class="cat"><span>Repaso 1.2</span><span class="mono">${grade.repaso||0}/${QUIZ.length}</span></div>
+      <div class="cat"><span>Cobertura</span><span class="mono">${grade.cobertura||0}%</span></div>
+      <div class="cat"><span>Preguntas</span><span class="mono">${grade.preguntas||0}</span></div>
+      <div class="cat"><span>Pistas</span><span class="mono">${grade.pistas||0}</span></div>
+      ${rubHTML}
+    </div>
+    <p class="muted" style="font-size:.88rem">Entregado: ${f(grade.entregadoAt)} · Paciente: ${esc(grade.paciente||"")}</p>
+    <div class="row" style="justify-content:flex-end"><button class="btn" id="blkOk">Entendido</button></div>
+  </div></div>`;
+  $("#blkOk").onclick=()=>m.innerHTML="";
+}
+
+function capNotice(){
+  const el=$("#capNotice");if(!el)return;
+  const msgs=[];
+  if(caps._ready&&!caps.sample&&!caps._hasClaude){
+    msgs.push(`<div class="notice err">El tutor simulado no está disponible: esta página debe abrirse en claude.ai.</div>`);
+  }
+  if(caps._ready&&!caps.canWrite)msgs.push(`<div class="notice info">Tu avance se guarda en este navegador. Al terminar, descarga tu registro y súbelo a la plataforma del curso. Usa el mismo equipo y navegador de principio a fin.</div>`);
+  el.innerHTML=msgs.join("");
+}
+function toast(t){
+  const m=$("#modal");
+  m.innerHTML=`<div class="modal" role="dialog" aria-modal="true"><div class="panel stack"><p>${esc(t)}</p><div class="row" style="justify-content:flex-end"><button class="btn" id="mOk">Entendido</button></div></div></div>`;
+  $("#mOk").focus();$("#mOk").onclick=()=>m.innerHTML="";
+}
+function confirmBox(t,okText,fn){
+  const m=$("#modal");
+  m.innerHTML=`<div class="modal" role="dialog" aria-modal="true"><div class="panel stack"><p>${esc(t)}</p><div class="row" style="justify-content:flex-end"><button class="btn-ghost" id="mNo">Cancelar</button><button class="btn" id="mYes">${esc(okText)}</button></div></div></div>`;
+  $("#mYes").focus();$("#mNo").onclick=()=>m.innerHTML="";$("#mYes").onclick=()=>{m.innerHTML="";fn();};
+}
+
+// -------- Repaso tema 1.2 --------
+function renderRepaso(){
+  S.repasoDraft=S.repasoDraft||{};
+  const d=S.repasoDraft;
+  app.innerHTML=`<div class="stack">
+    <div class="notice info">Antes de entrar a la consulta, repasa la clasificación del comportamiento. Tienes un solo intento: al enviar verás la respuesta correcta y la explicación de cada pregunta.</div>
+    <section class="panel stack">
+      <div class="row" style="justify-content:space-between"><h2>Repaso: visión científica del comportamiento</h2><span class="pill">Vale ${NOTA_REPASO} de 10 puntos</span></div>
+      <form class="quiz" id="quizForm">${QUIZ.map((it,i)=>`<div class="qitem"><fieldset><legend><span class="mono">${String(i+1).padStart(2,"0")}</span><span>${esc(it.q)}</span></legend>
+        ${it.o.map((op,j)=>`<label class="opt"><input type="radio" name="q${i}" id="q${i}_${j}" value="${j}" ${d[i]===j?"checked":""}> <span>${esc(op)}</span></label>`).join("")}
+      </fieldset></div>`).join("")}</form>
+    </section>
+    <div class="sticky-actions"><span class="muted" style="margin-right:auto;align-self:center;font-size:.9rem" id="qCount"></span><button class="btn" id="btnQuiz">Enviar repaso</button></div>
+  </div>`;
+  const count=()=>{const n=Object.keys(d).length;$("#qCount").textContent=`${n} de ${QUIZ.length} respondidas`;};
+  count();
+  $("#quizForm").addEventListener("submit",e=>e.preventDefault());
+  $("#quizForm").onchange=(e)=>{const m=/^q(\d+)$/.exec(e.target.name||"");if(m){d[+m[1]]=+e.target.value;lsSet();count();}};
+  $("#btnQuiz").onclick=()=>{
+    if(Object.keys(d).length<QUIZ.length)return toast("Responde todas las preguntas antes de enviar.");
+    confirmBox("Solo tienes un intento. ¿Enviar tus respuestas?","Enviar",()=>{
+      const aciertos=QUIZ.reduce((t,it,i)=>t+(d[i]===it.a?1:0),0);
+      S.repaso={respuestas:QUIZ.map((_,i)=>d[i]),aciertos,t:Date.now()};delete S.repasoDraft;
+      save();renderRepasoResultado();window.scrollTo(0,0);
+    });
+  };
+}
+function renderRepasoResultado(){
+  const r=S.repaso;
+  app.innerHTML=`<div class="stack">
+    <section class="panel stack"><span class="eyebrow">Resultado del repaso</span>
+      <div class="nota"><span class="mono">${r.aciertos}</span><span class="muted">/ ${QUIZ.length} correctas · ${Math.round(r.aciertos/QUIZ.length*NOTA_REPASO*10)/10} de ${NOTA_REPASO} puntos</span></div>
+      <p class="muted">Lee la explicación de cada pregunta. Te servirá para ubicar cada conducta en su apartado de la historia clínica.</p></section>
+    <div class="quiz">${QUIZ.map((it,i)=>{const sel=r.respuestas[i];return`<div class="qitem"><b>${String(i+1).padStart(2,"0")} · ${esc(it.q)}</b>
+      ${it.o.map((op,j)=>`<div class="opt ${j===it.a?"ok":(j===sel?"bad":"")}"><span>${j===it.a?"✓":(j===sel?"✗":"·")}</span><span>${esc(op)}</span></div>`).join("")}
+      <div class="fb ${sel===it.a?"ok":""}"><b>${sel===it.a?"Correcto":"Revisa"}</b>${esc(it.e)}</div></div>`;}).join("")}</div>
+    <div class="sticky-actions"><button class="btn" id="btnGoEnt">Pasar a la consulta</button></div>
+  </div>`;
+  $("#btnGoEnt").onclick=()=>{S.fase="entrevista";save();render();window.scrollTo(0,0);};
+}
+
+// -------- Entrevista --------
+function fichaHTML(c){
+  return`<section class="panel ficha stack"><span class="eyebrow">Ficha de llegada</span>
+    <dl><dt>Paciente</dt><dd>${esc(c.paciente)}</dd><dt>Especie</dt><dd>${c.especie==="Perro"?"Canino":"Felino"}</dd>
+    <dt>${c.tutor.rol==="tutora"?"Tutora":"Tutor"}</dt><dd>${esc(c.tutor.nombre)}</dd>
+    <dt>Recepción</dt><dd style="font-weight:400">${esc(c.recepcion)}</dd></dl></section>`;
+}
+function renderEntrevista(){
+  const c=caseOf(S.caseId),m=metrics();
+  const guia=["Datos del paciente","Motivo y objetivo","Antecedentes","Historia clínica general","Condiciones de vida y convivencia","Ambiente","Comportamientos centrípetos","Comportamientos centrífugos","Comportamientos mixtos","Otros datos"];
+  S.guia=S.guia||{};
+  app.innerHTML=`
+  <div class="grid2">
+    <section class="panel chat" aria-label="Entrevista">
+      <div class="row" style="justify-content:space-between;margin-bottom:8px"><h2>Entrevista con ${esc(c.tutor.nombre)}</h2>${TTS?`<button class="btn-ghost voz" id="btnVoz" aria-pressed="${vozOn}">${vozOn?"Voz del tutor: activada":"Escuchar al tutor"}</button>`:""}</div>
+      <div class="log" id="log" aria-live="polite"></div>
+      <div class="composer">
+        <label for="q" class="muted" style="position:absolute;left:-9999px">Tu pregunta</label>
+        <textarea id="q" placeholder="Escribe tu pregunta al tutor..." ${m.preguntas>=MAX_PREGUNTAS?"disabled":""}></textarea>
+        <button class="btn" id="send" ${m.preguntas>=MAX_PREGUNTAS?"disabled":""}>Preguntar</button>
+      </div>
+      <p class="dictado">Para preguntar hablando, usa el dictado de tu equipo con el cursor en el cuadro: en Windows, tecla Windows + H; en Mac, el atajo de Dictado; en el celular, el micrófono del teclado. Revisa el texto antes de enviarlo.</p>
+    </section>
+    <aside class="stack">
+      ${fichaHTML(c)}
+      <section class="panel stack">
+        <div class="counter"><div><span class="muted">Preguntas</span><span class="mono" id="cPreg">${m.preguntas} / ${MAX_PREGUNTAS}</span></div><div><span class="muted">Pistas</span><span class="mono">${m.pistas} / ${MAX_PISTAS}</span></div></div>
+        <div class="row"><button class="btn-ghost" id="btnPista" ${m.pistas>=MAX_PISTAS||!m.preguntas?"disabled":""}>Pedir pista</button>
+        <button class="btn-teal" id="btnFin">Terminar entrevista</button></div>
+        <div id="capNotice"></div>
+      </section>
+      <section class="panel stack">
+        <span class="eyebrow">Guía de la historia clínica</span>
+        <p class="muted" style="font-size:.9rem">Marca lo que ya exploraste. Es solo tu lista de control.</p>
+        <ul class="guide">${guia.map((g,i)=>`<li><label><input type="checkbox" data-g="${i}" ${S.guia[i]?"checked":""}> ${g}</label></li>`).join("")}</ul>
+      </section>
+    </aside>
+  </div>`;
+  capNotice();drawLog();
+  document.querySelectorAll("[data-g]").forEach(cb=>cb.onchange=()=>{S.guia[cb.dataset.g]=cb.checked;lsSet();});
+  const q=$("#q");
+  q.addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();ask();}});
+  $("#send").onclick=ask;
+  if($("#btnVoz"))$("#btnVoz").onclick=()=>{
+    vozOn=!vozOn;try{localStorage.setItem(LS_VOZ,vozOn?"1":"0");}catch(e){}
+    const b=$("#btnVoz");b.setAttribute("aria-pressed",String(vozOn));b.textContent=vozOn?"Voz del tutor: activada":"Escuchar al tutor";
+    if(vozOn){const last=S.chat.length?S.chat[S.chat.length-1].a:c.saludo;hablar(last,c.tutor.rol);}else callar();
+  };
+  document.querySelectorAll("[data-say]").forEach(btn=>btn.onclick=()=>{const i=+btn.dataset.say;hablar(i<0?c.saludo:S.chat[i].a,c.tutor.rol);});
+  $("#btnPista").onclick=pista;
+  $("#btnFin").onclick=()=>confirmBox(m.preguntas<8?"Has hecho pocas preguntas. Si terminas ahora, el chat se cierra y no podrás volver a preguntar. ¿Terminar la entrevista?":"Al terminar, el chat se cierra y pasas a redactar la historia sin IA. ¿Terminar la entrevista?","Terminar y redactar",()=>{S.fase="redaccion";S.finEntrevista=Date.now();save();render();window.scrollTo(0,0);});
+  if(!m.preguntas)q.focus();
+}
+function drawLog(extra){
+  const c=caseOf(S.caseId),log=$("#log");if(!log)return;
+  const say=(i)=>TTS?`<br><button class="say" data-say="${i}" aria-label="Escuchar respuesta">Escuchar</button>`:"";
+  const items=[`<div class="msg tu"><span class="who">${esc(c.tutor.nombre)}</span>${esc(c.saludo)}${say(-1)}</div>`];
+  const pt={};(S.pistas||[]).forEach(p=>(pt[p.turno]=pt[p.turno]||[]).push(p));
+  S.chat.forEach((t,i)=>{
+    items.push(`<div class="msg me"><span class="who">Tú</span>${esc(t.q)}</div>`);
+    items.push(`<div class="msg tu"><span class="who">${esc(c.tutor.nombre)}</span>${esc(t.a)}${say(i)}</div>`);
+    (pt[i+1]||[]).forEach(p=>items.push(`<div class="msg hint"><span class="who">Pista ${p.n}</span>${esc(p.texto)}</div>`));
+  });
+  if(extra)items.push(extra);
+  log.innerHTML=items.join("");log.scrollTop=log.scrollHeight;
+}
+function tutorPrompt(c,pregunta){
+  const hechos=c.hechos.map(h=>`[${h[0]}] ${h[3]}`).join("\n");
+  const conv=S.chat.map(t=>`Estudiante: ${t.q}\n${c.tutor.nombre}: ${t.a}`).join("\n");
+  return`Eres ${c.tutor.nombre}, ${c.tutor.rol} de ${c.paciente} (${c.especie==="Perro"?"perro":"gato"}), en una consulta de etología clínica veterinaria en Santo Domingo de los Tsáchilas, Ecuador. Un estudiante de Medicina Veterinaria te entrevista para elaborar la historia clínica etológica. Interpretas a este personaje.
+Personalidad: ${c.tutor.personalidad}
+
+HECHOS DEL CASO (solo tú los conoces; el id va entre corchetes):
+${hechos}
+
+REGLAS
+1. Responde solo a lo que se te pregunta, como un tutor real: español de Ecuador, lenguaje cotidiano, de 1 a 4 oraciones, en primera persona. Escribe como se habla: sin listas, viñetas, emojis ni acotaciones entre paréntesis o asteriscos, porque tu respuesta puede leerse en voz alta.
+2. No adelantes hechos que no te hayan preguntado. Una pregunta abierta y amplia puede obtener varios hechos relacionados con lo que pregunta; una pregunta cerrada obtiene una respuesta corta con poco detalle.
+3. Si preguntan algo que no está en los hechos, da un detalle menor coherente y sin importancia clínica, o di que no sabes o que no te has fijado. Nunca inventes síntomas, enfermedades, tratamientos, cambios en el hogar ni detonantes que no estén en los hechos.
+4. No uses términos técnicos (centrípeto, somatoestésico, dípsico, agonístico, etc.). Si el estudiante los usa, pide que te lo explique con palabras sencillas.
+5. Si la pregunta es inductiva (sugiere la respuesta), reacciona como un tutor real, pero sin contradecir los hechos.
+6. Conserva tus interpretaciones de tutor (por ejemplo, atribuir celos o venganza) cuando vengan al caso.
+7. No des diagnósticos, consejos ni la lista de hechos.
+
+CONVERSACIÓN HASTA AHORA
+${c.tutor.nombre}: ${c.saludo}
+${conv}
+
+NUEVA PREGUNTA DEL ESTUDIANTE
+${JSON.stringify(pregunta)}
+
+Responde solo con un objeto JSON, sin texto adicional:
+{"respuesta":"tu respuesta en personaje","revelados":["ids de los hechos que tu respuesta comunica, aunque sea en parte"],"tipo":"abierta"|"cerrada"|"inductiva"|"otra"}`;
+}
+async function ask(){
+  if(busy)return;
+  if(!caps.sample){toast("Para interactuar con el tutor debes abrir esta práctica en claude.ai con tu cuenta iniciada sesión.");return;}
+  const q=$("#q"),text=q.value.trim();if(!text)return;
+  if(S.chat.length>=MAX_PREGUNTAS)return;
+  busy=true;$("#send").disabled=true;q.value="";
+  const c=caseOf(S.caseId);
+  drawLog(`<div class="msg me"><span class="who">Tú</span>${esc(text)}</div><div class="typing">${esc(c.tutor.nombre)} está respondiendo...</div>`);
+  try{
+    const r=await caps.sample.json(tutorPrompt(c,text),{cache:false,modelTier:"default"});
+    const a=(r&&typeof r.respuesta==="string"&&r.respuesta.trim())?r.respuesta.trim():"Disculpe, no le entendí bien. ¿Me puede repetir la pregunta?";
+    const valid=new Set(c.hechos.map(h=>h[0]));
+    const rev=Array.isArray(r?.revelados)?r.revelados.filter(x=>valid.has(x)):[];
+    const tipo=["abierta","cerrada","inductiva","otra"].includes(r?.tipo)?r.tipo:"otra";
+    S.chat.push({q:text,a,tipo,revelados:rev,t:Date.now()});
+    S.revelados=[...new Set([...(S.revelados||[]),...rev])];
+    save();if(vozOn)hablar(a,c.tutor.rol);
+  }catch(e){
+    q.value=text;
+    const msg=e?.code==="rate_limited"?"Se alcanzó el límite de uso por un momento. Espera un minuto e intenta de nuevo.":e?.code==="not_granted"?"No se concedió permiso para usar Claude en esta página. Ábrela de nuevo y acepta el permiso.":"No se pudo obtener la respuesta del tutor. Intenta enviar la pregunta otra vez.";
+    toast(msg);
+  }
+  busy=false;renderEntrevista();const nq=$("#q");if(nq&&!nq.disabled)nq.focus();
+}
+function pista(){
+  const c=caseOf(S.caseId),rev=new Set(S.revelados);
+  if((S.pistas||[]).length>=MAX_PISTAS)return;
+  const order=["motivo","datos","antecedentes","salud","vida","convivencia","ambiente","alimentario","dipsico","somato","eliminatorio","sueno","agresion","exploratorio","juego","sexual","maternal","objetivo","otros"];
+  const usadas=new Set((S.pistas||[]).map(p=>p.cat));
+  const falta=order.find(cat=>!usadas.has(cat)&&keyFacts(c).some(h=>h[1]===cat&&!rev.has(h[0])));
+  const cat=falta||"otros";
+  const texto=falta?PISTA[cat]:"Revisa tu guía: ¿quedó algún apartado de la historia sin explorar a fondo?";
+  S.pistas.push({n:S.pistas.length+1,cat,texto,turno:S.chat.length,t:Date.now()});
+  save();renderEntrevista();
+}
+
+// -------- Redacción y revisión --------
+function renderRedaccion(){
+  const c=caseOf(S.caseId),rev=S.fase==="revision";
+  if(rev&&!S.v2draft)S.v2draft=JSON.parse(JSON.stringify(S.v1));
+  if(!rev&&!S.v1draft)S.v1draft={datos:{},sec:{}};
+  const draft=rev?S.v2draft:S.v1draft;
+  const fb=rev?S.fb1:null;
+  const fbSec={};(fb?.secciones||[]).forEach(s=>fbSec[s.id]=s);
+  let lastG=null;
+  const secHTML=SECCIONES.map(s=>{
+    let head="";
+    if(s.g!==lastG){const title=(s.g==="an"&&lastG)?"Cierre":GRUPOS[s.g][0];const tag=s.g==="an"?``:` <span class="tag ${s.g}">${s.g==="cp"?"Centrípeto":s.g==="cf"?"Centrífugo":"Mixto"}</span>`;head=`<div class="group-title"><h3>${title}</h3>${tag}</div>`;}
+    lastG=s.g;
+    const f=fbSec[s.id];
+    return head+`<div class="sec"><div class="sec-h"><label for="s_${s.id}" style="margin:0">${s.t}</label>${s.h?`<span class="muted" style="font-size:.88rem">${s.h}</span>`:""}</div>${f&&f.pregunta?`<div class="fb ${f.estado==="completo"?"ok":""}"><b>${f.estado==="completo"?"Bien logrado":"Para reconsiderar"}</b>${esc(f.pregunta)}</div>`:""}<textarea id="s_${s.id}" data-sec="${s.id}" rows="3">${esc(draft.sec[s.id]||"")}</textarea></div>`;
+  }).join("");
+  app.innerHTML=`
+  <div class="stack">
+    ${rev?retroResumenHTML(S.fb1,true):`<div class="notice info">El chat está cerrado. Redacta la historia clínica etológica con tus propias palabras, a partir de lo que obtuviste en la entrevista. No uses herramientas de IA en esta fase.</div>`}
+    <details class="transcript"><summary>Ver mis notas: transcripción de la entrevista (${S.chat.length} preguntas)</summary><div class="tx">${transcriptHTML(c)}</div></details>
+    <section class="panel stack">
+      <div class="row" style="justify-content:space-between"><h2>${rev?"Revisión de la historia clínica (única)":"Historia clínica etológica"}</h2><span class="pill">${esc(c.paciente)} · ${c.especie==="Perro"?"canino":"felino"}</span></div>
+      <h3>Datos del paciente</h3>
+      ${fbSec.datos?.pregunta?`<div class="fb ${fbSec.datos.estado==="completo"?"ok":""}"><b>${fbSec.datos.estado==="completo"?"Bien logrado":"Para reconsiderar"}</b>${esc(fbSec.datos.pregunta)}</div>`:""}
+      <div class="datos">${DATOS.map(([k,l])=>`<div><label for="d_${k}">${l}</label><input id="d_${k}" data-dato="${k}" value="${esc(draft.datos[k]||"")}"></div>`).join("")}</div>
+      ${secHTML}
+    </section>
+    <div class="sticky-actions">
+      <span class="muted" id="saveState" style="margin-right:auto;align-self:center;font-size:.9rem">El borrador se guarda en este navegador.</span>
+      <button class="btn" id="btnEnviar">${rev?"Entregar versión final":"Enviar para retroalimentación"}</button>
+    </div>
+  </div>`;
+  let tmr=null;
+  const collect=()=>{document.querySelectorAll("[data-dato]").forEach(i=>draft.datos[i.dataset.dato]=i.value);document.querySelectorAll("[data-sec]").forEach(t=>draft.sec[t.dataset.sec]=t.value);};
+  app.oninput=()=>{collect();clearTimeout(tmr);tmr=setTimeout(()=>{lsSet();},600);};
+  $("#btnEnviar").onclick=()=>{
+    collect();
+    const filled=SECCIONES.filter(s=>(draft.sec[s.id]||"").trim()).length;
+    const go=()=>rev?enviarV2(draft):enviarV1(draft);
+    if(filled<SECCIONES.length)confirmBox(`Tienes ${SECCIONES.length-filled} apartados vacíos. ${rev?"Esta es tu entrega final y no podrás modificarla.":"Solo tendrás una oportunidad de revisión."} ¿Enviar de todos modos?`,"Enviar",go);
+    else confirmBox(rev?"Esta es tu entrega final y no podrás modificarla. ¿Entregar?":"Recibirás preguntas de retroalimentación y podrás revisar una sola vez. ¿Enviar?","Enviar",go);
+  };
+}
+function transcriptHTML(c){
+  const out=[`<p><b>${esc(c.tutor.nombre)}:</b> ${esc(c.saludo)}</p>`];
+  const pt={};(S.pistas||[]).forEach(p=>(pt[p.turno]=pt[p.turno]||[]).push(p));
+  S.chat.forEach((t,i)=>{out.push(`<p><b>Estudiante:</b> ${esc(t.q)}</p><p><b>${esc(c.tutor.nombre)}:</b> ${esc(t.a)}</p>`);(pt[i+1]||[]).forEach(p=>out.push(`<p class="muted"><i>Pista ${p.n}: ${esc(p.texto)}</i></p>`));});
+  return out.join("");
+}
+function historiaTexto(v){
+  const d=DATOS.map(([k,l])=>`${l}: ${v.datos[k]||""}`).join("\n");
+  const s=SECCIONES.map(x=>`## ${x.t}\n${v.sec[x.id]||"(vacío)"}`).join("\n\n");
+  return`## Datos del paciente\n${d}\n\n${s}`;
+}
+function fbPrompt(c,v,final){
+  const hechos=c.hechos.map(h=>`[${h[0]}] (${CAT_LABEL[h[1]]}${h[2]?", clave":""}) ${h[3]}`).join("\n");
+  const obtenidos=(S.revelados||[]).join(", ")||"ninguno";
+  const conv=S.chat.map(t=>`Estudiante: ${t.q}\nTutor: ${t.a}`).join("\n");
+  return`Eres docente de Etología Clínica Veterinaria en la Universidad UTE (Ecuador). Revisas la historia clínica etológica que redactó un estudiante de pregrado tras entrevistar a un tutor simulado. Tu retroalimentación es socrática: haces preguntas que lo lleven a descubrir qué falta o qué debe reconsiderar. Nunca escribes la respuesta correcta ni el texto que debería poner.
+
+CASO (hechos reales; "clave" = imprescindibles)
+Paciente: ${c.paciente}, ${c.especie==="Perro"?"canino":"felino"}. Tutor: ${c.tutor.nombre}.
+${hechos}
+
+HECHOS QUE EL ESTUDIANTE OBTUVO EN LA ENTREVISTA: ${obtenidos}
+
+TRANSCRIPCIÓN DE LA ENTREVISTA
+${conv||"(sin preguntas)"}
+
+${final?"VERSIÓN 1 (anterior)\n"+historiaTexto(S.v1)+"\n\nVERSIÓN FINAL (revisada)\n":"HISTORIA REDACTADA POR EL ESTUDIANTE\n"}${historiaTexto(v)}
+
+CRITERIOS
+- Completitud: cada apartado contiene la información obtenida en la entrevista.
+- Motivo de consulta: en palabras del tutor; qué, desde cuándo, dónde, con quién, frecuencia.
+- Clasificación: cada conducta está en el apartado correcto (centrípetos: alimentario, dípsico, somatoestésico, eliminatorio, sueño; centrífugos: agresión, exploratorio, juego; mixtos: sexual, maternal).
+- Objetividad: describe conductas observables; no adopta como hechos las interpretaciones antropomórficas del tutor (celos, venganza, culpa, odio) y, si las registra, las atribuye al tutor.
+- Ambiente: rutinas, vivienda, convivencia, cambios recientes y etapa temprana.
+- Coherencia con el caso: señala datos que contradicen lo que dijo el tutor.
+
+REGLAS
+- Escribe en español, dirigiéndote al estudiante de tú, con frases breves.
+- Si un hecho NO fue obtenido en la entrevista, no lo reveles.
+- Si un hecho fue obtenido pero no aparece en la historia, pregunta dónde debería registrarlo, sin dictarlo.
+- No uses diagnósticos.
+${final?"- Esta es la versión final: reconoce de forma concreta lo que mejoró respecto a la versión 1 y deja preguntas que le sirvan para la práctica de diagnóstico.":""}
+
+Responde solo con un objeto JSON:
+{"general":"2 o 3 oraciones de valoración global",
+ "secciones":[{"id":"datos|motivo|objetivo|antecedentes|salud|vida|convivencia|ambiente|alimentario|dipsico|somato|eliminatorio|sueno|agresion|exploratorio|juego|sexual|maternal|otros","estado":"completo|incompleto|vacio|revisar","pregunta":"una pregunta socrática, o un reconocimiento breve si está completo"}],
+ "clasificacion":["preguntas sobre conductas ubicadas en un apartado que no corresponde"],
+ "objetividad":[{"cita":"fragmento textual breve del estudiante","pregunta":"pregunta socrática"}],
+ "entrevista":{"fortaleza":"una fortaleza concreta de su entrevista","pregunta":"una pregunta para mejorar su forma de preguntar"},
+ ${final?`"mejoras":["mejoras concretas entre versiones"],"para_diagnostico":["2 preguntas para la práctica de diagnóstico"],`:""}
+ "rubrica":{"completitud":1-4,"motivo":1-4,"clasificacion":1-4,"objetividad":1-4,"ambiente":1-4}}
+Incluye en "secciones" todos los apartados, con el estado que corresponda.`;
+}
+async function pedirFeedback(v,final){
+  const c=caseOf(S.caseId);
+  app.innerHTML=`<section class="panel stack" style="max-width:640px;margin:40px auto;text-align:center"><span class="eyebrow">${final?"Entrega final":"Retroalimentación"}</span><h2>Revisando tu historia clínica...</h2><p class="muted">La IA compara tu historia con el caso y la entrevista. Puede tardar hasta un minuto.</p></section>`;
+  try{return await caps.sample.json(fbPrompt(c,v,final),{cache:false,modelTier:"complex"});}
+  catch(e){return{error:e?.code||"error"};}
+}
+async function enviarV1(draft){
+  if(!caps.sample){toast("La retroalimentación necesita la conexión con Claude. Abre la práctica en Claude con tu cuenta.");return;}
+  S.v1=JSON.parse(JSON.stringify(draft));S.v1.t=Date.now();save();
+  const fb=await pedirFeedback(S.v1,false);
+  if(fb.error){S.fase="redaccion";render();toast(fb.error==="rate_limited"?"Se alcanzó el límite de uso. Espera un minuto y vuelve a enviar.":"No se pudo generar la retroalimentación. Vuelve a enviar.");return;}
+  S.fb1=fb;S.fase="retro";save();render();window.scrollTo(0,0);
+}
+async function enviarV2(draft){
+  S.v2=JSON.parse(JSON.stringify(draft));S.v2.t=Date.now();S.fase="final";save();
+  if(caps.sample){const fb=await pedirFeedback(S.v2,true);if(!fb.error){S.fb2=fb;}}
+  S.entregado=Date.now();save();
+  await saveGradeRecord();
+  render();window.scrollTo(0,0);
+}
+
+// -------- Retroalimentación --------
+function retroResumenHTML(fb,compact){
+  if(!fb)return"";
+  const obj=(fb.objetividad||[]).filter(o=>o&&o.pregunta);
+  const cls=(fb.clasificacion||[]).filter(Boolean);
+  return`<section class="panel stack">
+    <span class="eyebrow">${compact?"Retroalimentación recibida":"Retroalimentación socrática"}</span>
+    <p>${esc(fb.general||"")}</p>
+    ${cls.length?`<div class="stack"><h3>Clasificación de conductas</h3>${cls.map(q=>`<div class="fb">${esc(q)}</div>`).join("")}</div>`:""}
+    ${obj.length?`<div class="stack"><h3>Objetividad</h3>${obj.map(o=>`<div class="fb">${o.cita?`<i style="display:block;margin-bottom:2px">"${esc(o.cita)}"</i>`:""}${esc(o.pregunta)}</div>`).join("")}</div>`:""}
+    ${fb.entrevista?`<div class="stack"><h3>Tu entrevista</h3>${fb.entrevista.fortaleza?`<div class="fb ok"><b>Fortaleza</b>${esc(fb.entrevista.fortaleza)}</div>`:""}${fb.entrevista.pregunta?`<div class="fb">${esc(fb.entrevista.pregunta)}</div>`:""}</div>`:""}
+    ${compact?`<p class="muted">Las preguntas sobre cada apartado aparecen junto a cada campo.</p>`:""}
+  </section>`;
+}
+function renderRetro(){
+  const m=metrics();
+  app.innerHTML=`<div class="stack">
+    ${statsHTML(m)}
+    ${retroResumenHTML(S.fb1,false)}
+    <section class="panel stack"><h3>Apartados</h3>
+      <div class="stack">${(S.fb1.secciones||[]).map(s=>`<div class="fb ${s.estado==="completo"?"ok":""}"><b>${esc(CAT_LABEL[s.id]||s.id)}</b>${esc(s.pregunta||"")}</div>`).join("")}</div>
+    </section>
+    <div class="sticky-actions"><button class="btn" id="btnRev">Hacer mi revisión</button></div>
+  </div>`;
+  $("#btnRev").onclick=()=>{S.fase="revision";save();render();window.scrollTo(0,0);};
+}
+function statsHTML(m){
+  const cats=Object.entries(m.porCat).map(([k,[a,b]])=>`<div class="cat"><span>${CAT_LABEL[k]}</span><span class="mono">${a}/${b}</span></div>`).join("");
+  return`<section class="panel stack">
+    <span class="eyebrow">Tu entrevista en números</span>
+    <div class="stats">
+      <div class="stat"><span class="mono">${m.cobertura}%</span>Información clave obtenida<div class="bar"><span style="width:${m.cobertura}%"></span></div></div>
+      <div class="stat"><span class="mono">${m.preguntas}</span>Preguntas realizadas</div>
+      <div class="stat"><span class="mono">${m.preguntas?Math.round(100*m.abiertas/m.preguntas):0}%</span>Preguntas abiertas</div>
+      <div class="stat"><span class="mono">${m.inductivas}</span>Preguntas inductivas</div>
+      <div class="stat"><span class="mono">${m.pistas}</span>Pistas usadas</div>
+    </div>
+    <details><summary class="muted" style="cursor:pointer">Información clave obtenida por apartado</summary><div class="cats" style="margin-top:10px">${cats}</div></details>
+  </section>`;
+}
+
+// -------- Final --------
+function declaracion(st=S){
+  const c=caseOf(st.caseId),m=metrics(st);
+  const f=(t)=>t?new Date(t).toLocaleString("es-EC"):"";
+  return`DECLARACIÓN DE USO DE IA (nivel IAA, uso acotado)
+Integrantes: ${nombresTexto(st)}${grupoTexto(st)?"\n"+grupoTexto(st):""}
+Temas 1.2 y 1.3: Clasificación de los comportamientos y elaboración de la historia clínica etológica
+Paciente simulado: ${c.paciente} (${c.especie==="Perro"?"canino":"felino"})
+Herramienta: Claude (Anthropic), integrada en la aplicación de la práctica.
+Fines de uso: 1) simular al tutor durante la entrevista (${m.preguntas} preguntas, ${m.pistas} pistas); 2) generar retroalimentación socrática sobre la versión 1 y comentarios sobre la versión final. El repaso del tema 1.2 se respondió sin IA.
+La IA no redactó la historia clínica ni clasificó las conductas. Ambas versiones fueron escritas por los integrantes del grupo.
+Inicio: ${f(st.startedAt)} · Entrega: ${f(st.entregado)}`;
+}
+function renderFinal(){
+  const m=metrics(),fb=S.fb2,rec=recordFrom(S).record;
+  app.innerHTML=`<div class="stack">
+    <section class="panel stack"><span class="eyebrow">Práctica entregada</span><h2>Entregaste la historia clínica de ${esc(caseOf(S.caseId).paciente)}</h2>
+      <p class="muted">${esc(grupoTexto(S))} · ${esc(nombresTexto(S))}</p>
+      <div class="nota"><span class="mono">${rec.nota}</span><span class="muted">/ 10 ${rec.evaluada?"":"· la historia queda pendiente de calificar por tu docente"}</span></div>
+      <div class="cats">
+        <div class="cat"><span>Repaso 1.2</span><span class="mono">${rec.repaso}/${QUIZ.length}</span></div>
+        ${RUBRICA.map(([k,l])=>`<div class="cat"><span>${l}</span><span class="mono">${rec[k]||"—"}/4</span></div>`).join("")}
+      </div>
+      ${S._enLinea?`<p class="muted">Tu entrega quedó registrada para tu docente. Igual descarga tu registro como respaldo.</p>`:`<div class="notice warn"><b>Falta un paso:</b> descarga tu registro (o cópialo en un documento .txt) y súbelo a la plataforma del curso. Sin ese archivo tu docente no recibe la entrega.</div>`}</section>
+    ${statsHTML(m)}
+    ${fb?`<section class="panel stack"><span class="eyebrow">Comentario sobre tu versión final</span><p>${esc(fb.general||"")}</p>
+      ${(fb.mejoras||[]).length?`<h3>Lo que mejoraste</h3>${fb.mejoras.map(x=>`<div class="fb ok">${esc(x)}</div>`).join("")}`:""}
+      ${(fb.para_diagnostico||[]).length?`<h3>Para la práctica de diagnóstico</h3>${fb.para_diagnostico.map(x=>`<div class="fb">${esc(x)}</div>`).join("")}`:""}
+    </section>`:""}
+    <section class="panel stack"><h3>Declaración de uso de IA</h3><div class="decl" id="decl">${esc(declaracion())}</div>
+      <div class="row"><button class="btn-teal" id="btnDl">Descargar mi registro completo</button><button class="btn-ghost" id="btnCopyAll">Copiar registro completo</button><button class="btn-ghost" id="btnCopy">Copiar solo la declaración</button><button class="btn-ghost" id="btnNew">Volver al inicio</button></div>
+      <p class="muted" style="font-size:.9rem">El registro incluye la transcripción, las pistas, tus dos versiones y un bloque final de datos que tu docente usa para importarlo. No modifiques ese bloque.</p></section>
+  </div>`;
+  $("#btnCopy").onclick=async()=>{try{await navigator.clipboard.writeText(declaracion());$("#btnCopy").textContent="Copiada";}catch(e){const r=document.createRange();r.selectNodeContents($("#decl"));const s=getSelection();s.removeAllRanges();s.addRange(r);}};
+  if($("#btnDl"))$("#btnDl").onclick=async()=>descargar(await registroCompleto(S),`${archivoBase(S)}_${S.caseId}.txt`);
+  $("#btnCopyAll").onclick=async()=>{const t=await registroCompleto(S);try{await navigator.clipboard.writeText(t);$("#btnCopyAll").textContent="Registro copiado";}catch(e){mostrarTexto(t,`${archivoBase(S)}_${S.caseId}.txt`);}};
+  $("#btnNew").onclick=()=>confirmBox("Volverás a la pantalla de inicio. Antes, asegúrate de haber descargado o copiado tu registro. ¿Continuar?","Volver al inicio",()=>{lsClear();S=null;especieSel=null;regDraft={paralelo:"",grupo:"",integrantes:[""]};render();});
+}
+function registroTexto(st){
+  const c=caseOf(st.caseId);
+  const tx=[`${c.tutor.nombre}: ${c.saludo}`].concat(st.chat.map(t=>`Estudiante: ${t.q}\n${c.tutor.nombre}: ${t.a}`)).join("\n");
+  const pist=(st.pistas||[]).map(p=>`Pista ${p.n} (tras la pregunta ${p.turno}): ${p.texto}`).join("\n")||"Ninguna";
+  return`${declaracion(st)}\n\n=== TRANSCRIPCIÓN ===\n${tx}\n\n=== PISTAS ===\n${pist}\n\n=== VERSIÓN 1 ===\n${st.v1?historiaTexto(st.v1):""}\n\n=== VERSIÓN FINAL ===\n${st.v2?historiaTexto(st.v2):""}\n`;
+}
+const MARCA_INI="=== DATOS PARA IMPORTAR (no modificar) ===",MARCA_FIN="=== FIN DE DATOS ===";
+const b64e=(t)=>btoa(unescape(encodeURIComponent(t)));
+const b64d=(t)=>decodeURIComponent(escape(atob(t)));
+async function huella(json){
+  const t="hce-ute-1.2-1.3|"+json;let out="";
+  for(const seed of[0x811c9dc5,0x01000193,0x9e3779b9]){let h=seed>>>0;for(let i=0;i<t.length;i++){h^=t.charCodeAt(i);h=Math.imul(h,0x01000193)>>>0;}out+=h.toString(16).padStart(8,"0");}
+  return out;
+}
+async function registroCompleto(st){
+  const limpio=JSON.parse(JSON.stringify(st));delete limpio._saveErr;delete limpio.v1draft;delete limpio.v2draft;delete limpio.guia;
+  const json=JSON.stringify(limpio);const b=b64e(json).replace(/(.{76})/g,"$1\n");
+  return`${registroTexto(st)}\n${MARCA_INI}\n${b}\n${await huella(json)}\n${MARCA_FIN}\n`;
+}
+function sampleFlat(){
+  const call=async(input)=>{try{return String(await window.claude.complete(typeof input==="string"?input:JSON.stringify(input)));}catch(e){throw{code:/limit|rate/i.test(String(e&&(e.message||e)))?"rate_limited":"error",message:String(e&&(e.message||e))};}};
+  const f=async(input)=>({text:await call(input),truncated:false});
+  f.json=async(input)=>{const raw=(await call(input)).trim().replace(/^```(?:json)?\s*/i,"").replace(/```\s*$/,"");try{return JSON.parse(raw);}catch(e){}const i=raw.indexOf("{"),j=raw.lastIndexOf("}");if(i>=0&&j>i){try{return JSON.parse(raw.slice(i,j+1));}catch(e){}}throw{code:"invalid_json",text:raw};};
+  return f;
+}
+async function descargar(data,filename){
+  if(caps.downloads){try{await caps.downloads.save({filename,data});return;}catch(e){if(e?.code==="cancelled")return;}}
+  try{const url=URL.createObjectURL(new Blob([data],{type:"text/plain;charset=utf-8"}));const a=document.createElement("a");a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),4000);}catch(e){}
+  mostrarTexto(data,filename);
+}
+function mostrarTexto(data,filename){
+  const m=$("#modal");
+  m.innerHTML=`<div class="modal" role="dialog" aria-modal="true"><div class="panel stack" style="max-width:720px"><h3>Tu registro completo</h3>
+    <p class="muted" style="font-size:.92rem">Si la descarga no empezó, selecciona todo el texto (Cmd+A o Ctrl+A dentro del cuadro), cópialo y pégalo en un documento de texto llamado <b>${esc(filename)}</b>. Súbelo a la plataforma del curso.</p>
+    <textarea id="regTxt" readonly style="min-height:260px;font-family:var(--f-mono);font-size:.8rem">${esc(data)}</textarea>
+    <div class="row" style="justify-content:flex-end"><button class="btn-ghost" id="regSel">Seleccionar todo</button><button class="btn" id="regOk">Cerrar</button></div></div></div>`;
+  $("#regSel").onclick=()=>{const t=$("#regTxt");t.focus();t.select();};
+  $("#regOk").onclick=()=>m.innerHTML="";
+}
+
+// -------- Panel docente --------
+async function loadAllGrades(){
+  const grades=[];
+  if(caps.db&&caps.canRead){
+    try{
+      const snap=await caps.db.collection("grades").get();
+      snap.docs.forEach(d=>grades.push({key:d.id,...d.data()}));
+    }catch(e){}
+  }
+  // Complementar con localStorage
+  try{
+    for(let i=0;i<localStorage.length;i++){
+      const k=localStorage.key(i);
+      if(k&&k.startsWith("hc-grade:")){
+        const key=k.slice("hc-grade:".length);
+        if(!grades.find(g=>g.key===key)){
+          try{const v=JSON.parse(localStorage.getItem(k));if(v)grades.push({key,...v});}catch(e){}
+        }
+      }
+    }
+  }catch(e){}
+  grades.sort((a,b)=>(b.entregadoAt||0)-(a.entregadoAt||0));
+  return grades;
+}
+async function delGrade(key){
+  if(caps.db&&caps.canWrite){try{await caps.db.doc("grades/"+key).delete();}catch(e){}}
+  lsDelGrade(key);
+}
+function parseRegistro(text){
+  const i=text.indexOf(MARCA_INI),j=text.indexOf(MARCA_FIN);
+  if(i<0||j<i)return{error:"No contiene el bloque de datos para importar."};
+  const lines=text.slice(i+MARCA_INI.length,j).split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+  if(lines.length<2)return{error:"El bloque de datos está incompleto."};
+  const hash=lines.pop();let json;
+  try{json=b64d(lines.join(""));}catch(e){return{error:"El bloque de datos está dañado."};}
+  let st;try{st=JSON.parse(json);}catch(e){return{error:"El bloque de datos está dañado."};}
+  if(!st||!caseOf(st.caseId))return{error:"El registro no corresponde a esta práctica."};
+  return{st,json,hash};
+}
+async function importarTextos(textos){
+  const res=[];
+  for(const{nombre,text}of textos){
+    const p=parseRegistro(text);
+    if(p.error){res.push({archivo:nombre,ok:false,msg:p.error});continue;}
+    const integro=(await huella(p.json))===p.hash;
+    const{key,record}=recordFrom(p.st);
+    record.fuente="importada";record.integro=integro;record.importadoAt=Date.now();
+    let existente=null;
+    if(caps.db&&caps.canRead){try{const d=await caps.db.doc("grades/"+key).get();if(d.exists)existente=d.data();}catch(e){}}
+    if(!existente)existente=lsGetGrade(key);
+    if(existente&&existente.aid!==record.aid){res.push({archivo:nombre,ok:false,msg:`${grupoTexto(record)} ya tiene una entrega de paciente ${record.especie==="Perro"?"canino":"felino"}. Se mantiene la primera; elimínala si quieres reemplazarla.`});continue;}
+    const choque=choqueMiembros(await loadAllGrades(),record.especie,miembrosDe(record),record.aid);
+    if(choque){res.push({archivo:nombre,ok:false,msg:`${choque.hit} ya aparece en la entrega de ${grupoTexto(choque.g)||"otro grupo"} para paciente ${record.especie==="Perro"?"canino":"felino"}. Se mantiene la primera.`});continue;}
+    lsSetGrade(key,record);
+    let guardado=false;
+    if(caps.db&&caps.canWrite){try{await caps.db.doc("grades/"+key).set(record);guardado=true;}catch(e){}}
+    res.push({archivo:nombre,ok:true,msg:`${grupoTexto(record)} (${nombresTexto(record)}): ${record.nota}/10${integro?"":" · el bloque de datos fue modificado, revísalo"}${guardado?"":" · guardado solo en este navegador"}`});
+  }
+  return res;
+}
+async function renderDocente(){
+  app.innerHTML=`<section class="panel stack" style="max-width:640px;margin:30px auto;text-align:center"><span class="eyebrow">Panel docente</span><h2>Cargando registros...</h2></section>`;
+  if(!caps.canWrite){
+    app.innerHTML=`<section class="panel stack" style="max-width:640px;margin:30px auto"><span class="eyebrow">Panel docente</span><h2>Abre el panel desde la cuenta del docente</h2><p class="muted">Las calificaciones se guardan en la cuenta propietaria de esta práctica. Desde otra cuenta o sin sesión iniciada no se pueden ver ni importar.</p></section>`;
+    return;
+  }
+  const grades=await loadAllGrades();
+  const f=(t)=>t?new Date(t).toLocaleDateString("es-EC"):"—";
+  const rubCols=RUBRICA.map(([,l])=>`<th>${l}</th>`).join("");
+  const rows=grades.length?grades.map(g=>{
+    const rub=RUBRICA.map(([k])=>`<td class="mono">${g[k]||"—"}</td>`).join("");
+    return`<tr>
+      <td><ul class="integrantes">${miembrosDe(g).map(m=>`<li>${esc(m)}</li>`).join("")}</ul></td>
+      <td>${esc(g.paralelo||"")}</td>
+      <td>${esc(g.grupo||"")}</td>
+      <td><span class="pill fin">${g.especie==="Perro"?"Canino":"Felino"}</span> ${esc(g.paciente||"")}</td>
+      <td class="mono">${g.repaso||0}/${QUIZ.length}</td>
+      <td class="mono">${g.cobertura||0}%</td>
+      <td class="mono">${g.preguntas||0}</td>
+      <td class="mono">${g.pistas||0}</td>
+      ${rub}
+      <td class="mono" style="font-weight:700">${g.nota!=null?g.nota:notaDe(g)}</td>
+      <td>${g.fuente==="importada"?`<span class="pill ${g.integro===false?"inc":"fin"}">${g.integro===false?"Revisar":"Importada"}</span>`:`<span class="pill fin">Automática</span>`}</td>
+      <td>${f(g.entregadoAt)}</td>
+      <td><button class="btn-coral btn-sm" data-delkey="${esc(g.key)}">Eliminar</button></td>
+    </tr>`;
+  }).join(""):`<tr><td colspan="100" style="text-align:center;color:var(--muted);padding:2rem">No hay entregas registradas todavía.</td></tr>`;
+
+  app.innerHTML=`<div class="stack">
+    <section class="panel stack">
+      <span class="eyebrow">Importar entregas</span>
+      <p class="muted">Descarga de la plataforma del curso los registros .txt que subieron tus estudiantes y cárgalos aquí. Puedes seleccionar varios a la vez. Cada registro se califica y se guarda en tu cuenta; si un estudiante ya tiene entrega de esa especie, se conserva la primera.</p>
+      <div class="drop" id="drop">
+        <div class="row"><label for="fileIn" class="btn-teal" style="margin:0;cursor:pointer;border-radius:10px;padding:.6rem 1rem">Seleccionar archivos .txt</label><input id="fileIn" type="file" accept=".txt,text/plain" multiple hidden><span class="muted">o arrástralos a este recuadro</span></div>
+        <details><summary class="muted" style="cursor:pointer">Pegar el texto de un registro</summary><div class="stack" style="margin-top:8px"><textarea id="pasteIn" rows="5" placeholder="Pega aquí el registro completo, incluido el bloque de datos final"></textarea><div><button class="btn-ghost btn-sm" id="btnPaste">Importar texto pegado</button></div></div></details>
+      </div>
+      <div class="stack" id="impRes"></div>
+    </section>
+    <div class="row" style="justify-content:space-between">
+      <h2>Calificaciones <span class="muted" style="font-size:1rem;font-weight:400">(${grades.length})</span></h2>
+      <button class="btn-teal" id="btnCsvDl">Descargar CSV</button>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Integrantes</th><th>Paralelo</th><th>Grupo</th><th>Caso</th><th>Repaso</th><th>Cobertura</th><th>Preguntas</th><th>Pistas</th>${rubCols}<th>Nota /10</th><th>Origen</th><th>Fecha</th><th></th></tr></thead>
+        <tbody id="tBody">${rows}</tbody>
+      </table>
+    </div>
+  </div>`;
+
+  document.querySelectorAll("[data-delkey]").forEach(btn=>{
+    btn.onclick=()=>confirmBox(`¿Eliminar el registro de ${btn.closest("tr").querySelectorAll("td")[1].textContent?"Paralelo "+btn.closest("tr").querySelectorAll("td")[1].textContent+", ":""}Grupo ${btn.closest("tr").querySelectorAll("td")[2].textContent}? Esta acción no se puede deshacer.`,"Eliminar",async()=>{
+      await delGrade(btn.dataset.delkey);renderDocente();
+    });
+  });
+
+  const mostrarRes=(res)=>{$("#impRes").innerHTML=res.map(r=>`<div class="fb ${r.ok?"ok":""}"><b>${esc(r.archivo)}</b>${esc(r.msg)}</div>`).join("")+(res.some(r=>r.ok)?`<div><button class="btn-ghost btn-sm" id="btnRefresh">Actualizar tabla</button></div>`:"");if($("#btnRefresh"))$("#btnRefresh").onclick=()=>renderDocente();};
+  const leer=async(files)=>{const textos=[];for(const f of files){try{textos.push({nombre:f.name,text:await f.text()});}catch(e){textos.push({nombre:f.name,text:""});}}if(!textos.length)return;$("#impRes").innerHTML=`<p class="muted">Importando ${textos.length} registro(s)...</p>`;mostrarRes(await importarTextos(textos));};
+  $("#fileIn").onchange=(e)=>leer([...e.target.files]);
+  const drop=$("#drop");
+  drop.addEventListener("dragover",e=>{e.preventDefault();drop.classList.add("on");});
+  drop.addEventListener("dragleave",()=>drop.classList.remove("on"));
+  drop.addEventListener("drop",e=>{e.preventDefault();drop.classList.remove("on");leer([...(e.dataTransfer?.files||[])]);});
+  $("#btnPaste").onclick=async()=>{const t=$("#pasteIn").value;if(!t.trim())return;mostrarRes(await importarTextos([{nombre:"Texto pegado",text:t}]));};
+
+  $("#btnCsvDl").onclick=async()=>{
+    const header=["Estudiante","Paralelo","Grupo","Especie","Paciente","Repaso (/"+QUIZ.length+")","Cobertura%","Preguntas","Pistas",...RUBRICA.map(([,l])=>l+" (/4)"),"Nota (/10)","Origen","Fecha"].join(",");
+    const csvRows=grades.flatMap(g=>miembrosDe(g).map(m=>{
+      return[m,g.paralelo||"",g.grupo||"",g.especie||"",g.paciente||"",g.repaso||0,g.cobertura||0,g.preguntas||0,g.pistas||0,...RUBRICA.map(([k])=>g[k]||0),g.nota!=null?g.nota:notaDe(g),g.fuente==="importada"?(g.integro===false?"Importada (revisar)":"Importada"):"Automática",g.entregadoAt?new Date(g.entregadoAt).toLocaleDateString("es-EC"):""].map(v=>`"${String(v).replace(/"/g,'""')}"`).join(",");
+    }));
+    const csv="\ufeff"+header+"\n"+csvRows.join("\n");
+    const filename=`historia_clinica_calificaciones_${new Date().toISOString().slice(0,10)}.csv`;
+    if(caps.downloads){try{await caps.downloads.save({filename,data:csv});return;}catch(e){if(e?.code==="cancelled")return;}}
+    try{const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));const a=document.createElement("a");a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),4000);}catch(e){}
+    mostrarTexto(csv,filename);
+  };
+}
+
+// -------- Arranque --------
+// Solo el docente (cuenta propietaria) lee y escribe las calificaciones en la base de datos.
+// Los estudiantes, aunque entren con su cuenta, guardan en su navegador y entregan su registro.
+async function resolverAcceso(user){
+  caps.canWrite=false;caps.canRead=false;canEdit=false;
+  let owner=false;
+  if(user){try{uid=await user.id();}catch(e){}try{canEdit=!!(await user.canEdit());}catch(e){}try{owner=!!(await user.isOwner());}catch(e){}}
+  // Solo la cuenta propietaria (el docente) ve y guarda calificaciones, aunque los estudiantes sean Editores.
+  if(caps.db&&owner){caps.canWrite=true;caps.canRead=true;}
+}
+render();
+$("#btnDocente").onclick=()=>promptDocente();
+$("#btnAlumno").onclick=()=>{view="alumno";render();};
+
+(async()=>{
+  const has=!!(window.claude&&typeof window.claude.use==="function");
+  const flat=!!(window.claude&&typeof window.claude.complete==="function");
+  let[db,sample,user,downloads]=has?await Promise.all(["db","sample","user","downloads"].map(n=>window.claude.use(n).catch(()=>null))):[null,null,null,null];
+  if(!sample&&flat)sample=sampleFlat();
+  caps={db,sample,user,downloads,_ready:true,_hasClaude:has||flat,_flat:flat&&!has};
+  if(has){try{const perm=await window.claude.use("permissions");if(perm){caps._perm=perm;caps._diag={sample:await perm.state("sample")};}}catch(e){}}
+  await resolverAcceso(user);
+  syncReg();
+  render();
+})();
+</script>
+
+
+</body></html>
